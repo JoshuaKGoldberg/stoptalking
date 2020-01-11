@@ -1,26 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import styles from "./styles.module.css";
+import { useTime } from "./hooks/useTime";
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    const time = useTime();
+
+    return (
+        <main>
+            <h1 className={styles.heading}>Stop talking.</h1>
+            <p>It&apos;s been {time / 1000} second(s).</p>
+        </main>
+    );
+};
 
 export default App;
