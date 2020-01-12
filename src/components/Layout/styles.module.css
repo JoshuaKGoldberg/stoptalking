@@ -1,6 +1,10 @@
 .layout {
+    bottom: 1rem;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 5rem auto min-content;
-    height: 100%;
+    left: 1rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
 }

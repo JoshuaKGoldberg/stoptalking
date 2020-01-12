@@ -14,22 +14,26 @@ export const TimeUnit: React.FC<TimeUnitProps> = ({
     value,
 }) => {
     const labelId = `label-${label}`;
+    const [Component, props] = onChange
+        ? ([
+              "input",
+              {
+                  onChange: (event: React.ChangeEvent<HTMLInputElement>) =>
+                      onChange(event.target.valueAsNumber),
+                  min: 0,
+                  type: "number",
+                  value,
+              },
+          ] as const)
+        : (["span", { children: value }] as const);
 
     return (
         <span className={styles.timeUnit}>
-            <input
-                {...(onChange
-                    ? {
-                          onChange: event =>
-                              onChange(event.target.valueAsNumber),
-                      }
-                    : { readOnly: true })}
+            <Component
+                {...props}
                 aria-labelledby={labelId}
                 aria-live="assertive"
                 className={styles.timeInput}
-                type="number"
-                min="0"
-                value={value}
             />
             <span id={labelId}>{label}</span>
         </span>

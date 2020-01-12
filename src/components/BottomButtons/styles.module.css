@@ -2,3 +2,10 @@
     display: grid;
     grid-template-rows: 33% 34% 33%;
 }
+
+@media (min-width: 777px) {
+    .bottomButtons {
+        grid-template-columns: 33% 34% 33%;
+        grid-template-rows: 100%;
+    }
+}
