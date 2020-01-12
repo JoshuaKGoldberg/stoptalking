@@ -6,6 +6,7 @@ import { TimeDisplay } from "../../components/TimeDisplay";
 import { useTime } from "../../hooks/useTime";
 import { Settings } from "../../settings/types";
 import { SetSettings } from "../../settings/useSettings";
+import { OutOfTime } from "../OutOfTime";
 
 export type PlayViewProps = {
     settings: Settings;
@@ -31,7 +32,10 @@ export const PlayView: React.FC<PlayViewProps> = ({
         <main>
             <h1>Play</h1>
             <TimeDisplay
-                value={settings.talkTimeRemaining ?? settings.talkTime}
+                value={Math.max(
+                    0,
+                    settings.talkTimeRemaining ?? settings.talkTime,
+                )}
             />
             <Link
                 to={{
@@ -42,6 +46,9 @@ export const PlayView: React.FC<PlayViewProps> = ({
                 Back to Settings
             </Link>
             <ShareButton settings={settings} />
+            {settings.talkTimeRemaining && settings.talkTimeRemaining < 0 && (
+                <OutOfTime over={-Math.min(0, settings.talkTimeRemaining)} />
+            )}
         </main>
     );
 };
