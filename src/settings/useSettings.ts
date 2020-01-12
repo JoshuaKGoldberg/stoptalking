@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 
 import { useQuery } from "../hooks/useQuery";
 import { minuteMs } from "../time";
+import { stringifySearch } from "../utils/search";
 import { Settings } from "./types";
 
 const defaultSettings = {
@@ -22,14 +23,9 @@ export const useSettings = () => {
     const setSettingsAndHistory = useCallback(
         (overrides: Partial<Settings>) => {
             const newSettings = { ...settings, ...overrides };
+            const stringifiedSettings = stringifySearch(newSettings);
+
             setSettings(newSettings);
-
-            const stringifiedSettings =
-                "?" +
-                Object.entries(newSettings)
-                    .map(([key, value]) => key + "=" + value)
-                    .join("&");
-
             window.history.replaceState("", "", stringifiedSettings);
 
             return stringifiedSettings;

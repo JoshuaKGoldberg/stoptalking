@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-restricted-globals */
 import { BrowserClock, createClock } from "lolex";
 
 export type SetTimer = <Args extends any[]>(
@@ -11,6 +11,7 @@ export type Globals = {
     clearInterval: (handle: unknown) => void;
     clearTimeout: (handle: unknown) => void;
     localStorage: Storage;
+    location: Location;
     sessionStorage: Storage;
     setInterval: SetTimer;
     setTimeout: SetTimer;
@@ -27,6 +28,7 @@ export const createGlobals = () => {
             clearInterval,
             clearTimeout,
             localStorage,
+            location,
             sessionStorage,
             setInterval,
             setTimeout,
@@ -34,6 +36,13 @@ export const createGlobals = () => {
     }
 
     const clock = createClock<BrowserClock>();
+
+    const createStubLocation = () => {
+        return {
+            assign: jest.fn(),
+            toString: () => "",
+        };
+    };
 
     const createStubStorage = () => {
         const items = new Map();
@@ -56,6 +65,7 @@ export const createGlobals = () => {
         ...clock,
         clock,
         localStorage: createStubStorage(),
+        location: createStubLocation(),
         sessionStorage: createStubStorage(),
     };
 };

@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-
-import { Settings } from "../../settings/types";
-import { TimeDisplay } from "../../components/TimeDisplay";
 import { Link, useLocation } from "react-router-dom";
+
+import { ShareButton } from "../../components/ShareButton";
+import { TimeDisplay } from "../../components/TimeDisplay";
 import { useTime } from "../../hooks/useTime";
+import { Settings } from "../../settings/types";
 import { SetSettings } from "../../settings/useSettings";
 
 export type PlayViewProps = {
@@ -40,6 +41,7 @@ export const PlayView: React.FC<PlayViewProps> = ({
             >
                 Back to Settings
             </Link>
+            <ShareButton settings={settings} />
         </main>
     );
 };
