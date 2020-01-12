@@ -8,11 +8,13 @@ import { SetSettings } from "../../settings/useSettings";
 import { OutOfTime } from "../OutOfTime";
 
 export type PlayViewProps = {
+    markInteracted?: () => void;
     settings: Settings;
     setSettings: SetSettings;
 };
 
 export const PlayView: React.FC<PlayViewProps> = ({
+    markInteracted,
     settings,
     setSettings,
 }) => {
@@ -35,8 +37,12 @@ export const PlayView: React.FC<PlayViewProps> = ({
         <main>
             <h1>Play</h1>
             <TimeDisplay value={Math.max(0, settings.remaining)} />
-            <OutOfTime remaining={settings.remaining} />
+            <OutOfTime
+                interacted={markInteracted === undefined}
+                remaining={settings.remaining}
+            />
             <BottomButtons
+                markInteracted={markInteracted}
                 toUri="/"
                 toText="Settings"
                 settings={settings}

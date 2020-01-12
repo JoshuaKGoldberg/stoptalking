@@ -15,6 +15,7 @@ export type Globals = {
     sessionStorage: Storage;
     setInterval: SetTimer;
     setTimeout: SetTimer;
+    window: Pick<Window, "addEventListener" | "removeEventListener">;
 };
 
 export type TestGlobals = Globals &
@@ -32,6 +33,7 @@ export const createGlobals = () => {
             sessionStorage,
             setInterval,
             setTimeout,
+            window,
         };
     }
 
@@ -61,12 +63,42 @@ export const createGlobals = () => {
         };
     };
 
+    const createStubListeners = () => {
+        const eventListeners = new Map<string, jest.Mock[]>();
+
+        return {
+            addEventListener: jest.fn((event: string, listener: jest.Mock) => {
+                const events = eventListeners.get(event);
+                if (events === undefined) {
+                    eventListeners.set(event, [listener]);
+                } else {
+                    events.push(listener);
+                }
+            }),
+            eventListeners,
+            removeEventListener: jest.fn(
+                (event: string, listener: jest.Mock) => {
+                    const events = eventListeners.get(event);
+                    if (events === undefined) {
+                        return;
+                    }
+
+                    const indexOf = events.indexOf(listener);
+                    if (indexOf !== -1) {
+                        events.splice(indexOf, 1);
+                    }
+                },
+            ),
+        };
+    };
+
     return {
         ...clock,
         clock,
         localStorage: createStubStorage(),
         location: createStubLocation(),
         sessionStorage: createStubStorage(),
+        window: createStubListeners(),
     };
 };
 

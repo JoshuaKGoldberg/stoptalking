@@ -6,11 +6,13 @@ import { SetSettings } from "../useSettings";
 import { BottomButtons } from "../../components/BottomButtons";
 
 export type SettingsViewProps = {
+    markInteracted?: () => void;
     settings: Settings;
     setSettings: SetSettings;
 };
 
 export const SettingsView: React.FC<SettingsViewProps> = ({
+    markInteracted,
     settings,
     setSettings,
 }) => {
@@ -25,6 +27,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                 />
             </p>
             <BottomButtons
+                markInteracted={markInteracted}
                 toUri="/play"
                 toText="Start"
                 settings={settings}

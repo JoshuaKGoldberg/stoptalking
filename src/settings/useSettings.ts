@@ -29,11 +29,6 @@ export const useSettings = () => {
 
             setSettings(newSettings);
             window.history.replaceState("", "", stringifiedSettings);
-            console.log("new ", { newSettings, stringifiedSettings });
-
-            if (newSettings.remaining === 240000) {
-                debugger;
-            }
 
             return stringifiedSettings;
         },

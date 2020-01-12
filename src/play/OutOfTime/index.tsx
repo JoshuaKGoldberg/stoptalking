@@ -1,11 +1,19 @@
 import React from "react";
+import { useBeeper } from "../Beeper/useBeeper";
 
 export type OutOfTimeProps = {
+    interacted: boolean;
     remaining: number;
 };
 
-export const OutOfTime: React.FC<OutOfTimeProps> = ({ remaining }) => {
-    if (remaining >= 0) {
+export const OutOfTime: React.FC<OutOfTimeProps> = ({
+    interacted,
+    remaining,
+}) => {
+    const annoyance = Math.min(0, remaining);
+    useBeeper({ annoyance, interacted });
+
+    if (annoyance === 0) {
         return null;
     }
 

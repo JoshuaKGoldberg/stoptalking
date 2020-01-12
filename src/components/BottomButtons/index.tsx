@@ -6,6 +6,7 @@ import { SetSettings } from "../../settings/useSettings";
 import { ShareButton } from "../ShareButton";
 
 export type BottomButtonsProps = {
+    markInteracted?: () => void;
     setSettings: SetSettings;
     settings: Settings;
     toText: string;
@@ -13,6 +14,7 @@ export type BottomButtonsProps = {
 };
 
 export const BottomButtons: React.FC<BottomButtonsProps> = ({
+    markInteracted,
     setSettings,
     settings,
     toText,
@@ -32,6 +34,13 @@ export const BottomButtons: React.FC<BottomButtonsProps> = ({
         <nav>
             <input onClick={navigate} type="button" value={toText} />
             <ShareButton settings={settings} />
+            {markInteracted !== undefined && (
+                <input
+                    onClick={markInteracted}
+                    type="button"
+                    value="Click anywhere to enable beeps"
+                />
+            )}
         </nav>
     );
 };
