@@ -19,20 +19,21 @@ export const useSettings = () => {
             : defaultSettings.talkTime,
     });
 
-    const setSettingsAndHistory = useCallback((newSettings: Settings) => {
+    const setSettingsAndHistory = useCallback((overrides: Partial<Settings>) => {
+        const newSettings = ({ ...settings, ...overrides });
         setSettings(newSettings);
 
-        window.history.replaceState(
-            "",
-            "",
-            "?" +
+        const stringifiedSettings = "?" +
             Object.entries(newSettings)
                 .map(([key, value]) => key + "=" + value)
-                .join("&"),
-        );
-    }, []);
+                .join("&")
+
+        window.history.replaceState("", "", stringifiedSettings);
+
+        return stringifiedSettings;
+    }, [settings]);
 
     return [settings, setSettingsAndHistory] as const;
 };
 
-export type SetSettingsFromQuery = ReturnType<typeof useSettings>[1];
+export type SetSettings = ReturnType<typeof useSettings>[1];

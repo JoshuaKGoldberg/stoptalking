@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import { useSettings } from "./settings/useSettings";
+import { PlayView } from "./play/PlayView";
 import { SettingsView } from "./settings/SettingsView";
+import { useSettings } from "./settings/useSettings";
 
 const App: React.FC = () => {
     const [settings, setSettings] = useSettings();
@@ -10,6 +11,9 @@ const App: React.FC = () => {
     return (
         <Router>
             <Switch>
+                <Route path="/play">
+                    <PlayView settings={settings} setSettings={setSettings} />
+                </Route>
                 <Route path="/">
                     <SettingsView
                         settings={settings}

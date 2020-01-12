@@ -1,11 +1,11 @@
-.timeInput {
+.timeDisplay {
     display: grid;
     font-size: 2rem;
     grid-template-columns: 50% 50%;
     text-align: center;
 }
 
-.timeInput input {
+.timeDisplay input {
     font-size: 3rem;
     grid-row: 1;
     text-align: center;
