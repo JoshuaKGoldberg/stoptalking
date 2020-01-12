@@ -3,19 +3,17 @@ import { useBeeper } from "../Beeper/useBeeper";
 
 export type OutOfTimeProps = {
     interacted: boolean;
-    remaining: number;
+    over: number;
 };
 
-export const OutOfTime: React.FC<OutOfTimeProps> = ({
-    interacted,
-    remaining,
-}) => {
-    const annoyance = Math.min(0, remaining);
-    useBeeper({ annoyance, interacted });
+export const OutOfTime: React.FC<OutOfTimeProps> = ({ interacted, over }) => {
+    useBeeper({ over, interacted });
 
-    if (annoyance === 0) {
+    if (over >= 15_000) {
         return null;
     }
 
-    return <p>{-remaining / 1000} second(s) Out of time!</p>;
+    return (
+        <p>{over >= 0 ? "Out of time" : `${-over / 1000} second(s) left`}!</p>
+    );
 };

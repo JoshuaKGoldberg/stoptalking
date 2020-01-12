@@ -2,15 +2,15 @@ import { useState, useEffect } from "react";
 import { BeeperNodes, createBeeper } from "./createBeeperNodes";
 
 export type BeeperSettings = {
-    annoyance: number;
     interacted: boolean;
+    over: number;
 };
 
-export const useBeeper = ({ annoyance, interacted }: BeeperSettings) => {
+export const useBeeper = ({ interacted, over }: BeeperSettings) => {
     const [beeper, setBeeper] = useState<BeeperNodes>();
 
     useEffect(() => {
-        if (annoyance === 0 || !interacted) {
+        if (over <= 0 || !interacted) {
             return;
         }
 
@@ -19,7 +19,11 @@ export const useBeeper = ({ annoyance, interacted }: BeeperSettings) => {
             return;
         }
 
-        // Todo: annoyance levels...
-        beeper.modulator.frequency.value = 2;
-    }, [annoyance, beeper, interacted]);
+        if (over <= 2000) {
+            beeper.setVolume(1000);
+            return;
+        }
+
+        beeper.setVolume(Math.max(0, over / 100));
+    }, [over, beeper, interacted]);
 };

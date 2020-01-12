@@ -3,31 +3,35 @@
  */
 export const createBeeper = () => {
     const context = new AudioContext();
-
-    // Defaults to A440Hz, sine wave
     const source = context.createOscillator();
-
-    // Now let's create a modulator to turn beeps on and off
     const modulator = context.createOscillator();
-
-    modulator.type = "square";
-
     const gain = context.createGain();
     const scaler = context.createGain();
 
+    modulator.frequency.value = 2;
+    modulator.type = "square";
+    scaler.gain.value = 0.1;
+    gain.gain.value = 0.1;
+
     source.connect(gain);
     gain.connect(context.destination);
-
-    modulator.connect(scaler); // Mod signal is [-1,1]
-    scaler.gain.value = 0.5; // we need it to be [-0.5,0.5]
-    gain.gain.value = 0.5; // then it's summed with 0.5, so [0,1]
+    modulator.connect(scaler);
     scaler.connect(gain.gain);
 
     // Start it up
     source.start(0);
     modulator.start(0);
 
-    return { context, modulator, source };
+    /**
+     * @param volume Number in [0, 100].
+     */
+    const setVolume = (volume: number) => {
+        const normalizedVolume = Math.min(1, volume / 1000);
+
+        gain.gain.value = scaler.gain.value = normalizedVolume;
+    };
+
+    return { context, modulator, setVolume, source };
 };
 
 export type BeeperNodes = ReturnType<typeof createBeeper>;

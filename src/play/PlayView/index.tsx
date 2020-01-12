@@ -50,7 +50,7 @@ export const PlayView: React.FC<PlayViewProps> = ({
             <TimeDisplay value={Math.max(0, settings.remaining)} />
             <OutOfTime
                 interacted={markInteracted === undefined}
-                remaining={settings.remaining}
+                over={-settings.remaining}
             />
             <Controls paused={paused} setPaused={setPaused} restart={restart} />
             <BottomButtons
