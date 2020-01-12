@@ -1,9 +1,11 @@
 import React, { useCallback } from "react";
 import { useHistory } from "react-router-dom";
 
+import { InputButton } from "../InputButton";
 import { Settings } from "../../settings/types";
 import { SetSettings } from "../../settings/useSettings";
 import { ShareButton } from "../ShareButton";
+import styles from "./styles.module.css";
 
 export type BottomButtonsProps = {
     markInteracted?: () => void;
@@ -31,15 +33,11 @@ export const BottomButtons: React.FC<BottomButtonsProps> = ({
     }, [history, setSettings, settings.time, toUri]);
 
     return (
-        <nav>
-            <input onClick={navigate} type="button" value={toText} />
+        <nav className={styles.bottomButtons}>
+            <InputButton onClick={navigate} value={toText} />
             <ShareButton settings={settings} />
             {markInteracted !== undefined && (
-                <input
-                    onClick={markInteracted}
-                    type="button"
-                    value="Click anywhere to enable beeps"
-                />
+                <InputButton onClick={markInteracted} value="Enable beeps" />
             )}
         </nav>
     );

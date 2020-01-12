@@ -1,0 +1,4 @@
+.bottomButtons {
+    display: grid;
+    grid-template-columns: 33% 34% 33%;
+}

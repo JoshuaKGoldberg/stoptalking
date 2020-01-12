@@ -1,0 +1,16 @@
+.inputButton {
+    background: white;
+    border: none;
+    box-shadow: 0 0 0 5px black;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 7.5rem;
+    padding: 0 1rem;
+    text-transform: uppercase;
+}
+
+.inputButton:focus {
+    outline: none;
+    box-shadow: 0 0 0 5px white, 0 0 0 10px black;
+    z-index: 1;
+}
