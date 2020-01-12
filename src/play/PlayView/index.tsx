@@ -9,13 +9,15 @@ import { OutOfTime } from "../OutOfTime";
 import { Controls } from "./Controls";
 
 export type PlayViewProps = {
-    markInteracted?: () => void;
+    audio: boolean;
     settings: Settings;
     setSettings: SetSettings;
+    toggleAudio: () => void;
 };
 
 export const PlayView: React.FC<PlayViewProps> = ({
-    markInteracted,
+    audio,
+    toggleAudio,
     settings,
     setSettings,
 }) => {
@@ -48,13 +50,11 @@ export const PlayView: React.FC<PlayViewProps> = ({
         <main>
             <h1>Play</h1>
             <TimeDisplay value={Math.max(0, settings.remaining)} />
-            <OutOfTime
-                interacted={markInteracted === undefined}
-                over={-settings.remaining}
-            />
+            <OutOfTime audio={audio} over={-settings.remaining} />
             <Controls paused={paused} setPaused={setPaused} restart={restart} />
             <BottomButtons
-                markInteracted={markInteracted}
+                audio={audio}
+                toggleAudio={toggleAudio}
                 toUri="/"
                 toText="Settings"
                 settings={settings}

@@ -10,8 +10,8 @@ export const createBeeper = () => {
 
     modulator.frequency.value = 2;
     modulator.type = "square";
-    scaler.gain.value = 0.1;
-    gain.gain.value = 0.1;
+    scaler.gain.value = 0.5;
+    gain.gain.value = 0.5;
 
     source.connect(gain);
     gain.connect(context.destination);
@@ -26,12 +26,17 @@ export const createBeeper = () => {
      * @param volume Number in [0, 100].
      */
     const setVolume = (volume: number) => {
-        const normalizedVolume = Math.min(1, volume / 1000);
+        const normalizedVolume = Math.min(1, volume / 500);
 
         gain.gain.value = scaler.gain.value = normalizedVolume;
     };
 
-    return { context, modulator, setVolume, source };
+    const stop = () => {
+        source.stop();
+        modulator.stop();
+    }
+
+    return { setVolume, stop };
 };
 
 export type BeeperNodes = ReturnType<typeof createBeeper>;

@@ -1,15 +1,16 @@
 import React from "react";
+
 import { useBeeper } from "../Beeper/useBeeper";
 
 export type OutOfTimeProps = {
-    interacted: boolean;
+    audio: boolean;
     over: number;
 };
 
-export const OutOfTime: React.FC<OutOfTimeProps> = ({ interacted, over }) => {
-    useBeeper({ over, interacted });
+export const OutOfTime: React.FC<OutOfTimeProps> = ({ audio, over }) => {
+    useBeeper({ over, audio });
 
-    if (over >= 15_000) {
+    if (over <= 15_000) {
         return null;
     }
 

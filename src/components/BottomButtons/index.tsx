@@ -8,17 +8,19 @@ import { ShareButton } from "../ShareButton";
 import styles from "./styles.module.css";
 
 export type BottomButtonsProps = {
-    markInteracted?: () => void;
+    audio: boolean;
     setSettings: SetSettings;
     settings: Settings;
+    toggleAudio: () => void;
     toText: string;
     toUri: string;
 };
 
 export const BottomButtons: React.FC<BottomButtonsProps> = ({
-    markInteracted,
+    audio,
     setSettings,
     settings,
+    toggleAudio,
     toText,
     toUri,
 }) => {
@@ -36,9 +38,10 @@ export const BottomButtons: React.FC<BottomButtonsProps> = ({
         <nav className={styles.bottomButtons}>
             <InputButton onClick={navigate} value={toText} />
             <ShareButton settings={settings} />
-            {markInteracted !== undefined && (
-                <InputButton onClick={markInteracted} value="Enable beeps" />
-            )}
+            <InputButton
+                onClick={toggleAudio}
+                value={audio ? "Disable beeps" : "Enable beeps"}
+            />
         </nav>
     );
 };

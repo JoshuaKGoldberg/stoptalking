@@ -1,16 +1,22 @@
 import { useState, useEffect } from "react";
+
 import { BeeperNodes, createBeeper } from "./createBeeperNodes";
 
 export type BeeperSettings = {
-    interacted: boolean;
+    audio: boolean;
     over: number;
 };
 
-export const useBeeper = ({ interacted, over }: BeeperSettings) => {
+export const useBeeper = ({ audio, over }: BeeperSettings) => {
     const [beeper, setBeeper] = useState<BeeperNodes>();
 
     useEffect(() => {
-        if (over <= 0 || !interacted) {
+        if (over <= 0 || !audio) {
+            if (beeper !== undefined) {
+                beeper.stop();
+                setBeeper(undefined);
+            }
+
             return;
         }
 
@@ -19,11 +25,6 @@ export const useBeeper = ({ interacted, over }: BeeperSettings) => {
             return;
         }
 
-        if (over <= 2000) {
-            beeper.setVolume(1000);
-            return;
-        }
-
         beeper.setVolume(Math.max(0, over / 100));
-    }, [over, beeper, interacted]);
+    }, [over, beeper, audio]);
 };
