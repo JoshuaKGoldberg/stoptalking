@@ -1,7 +1,6 @@
-import React, { useEffect, useCallback } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect } from "react";
 
-import { ShareButton } from "../../components/ShareButton";
+import { BottomButtons } from "../../components/BottomButtons";
 import { TimeDisplay } from "../../components/TimeDisplay";
 import { useTime } from "../../hooks/useTime";
 import { Settings } from "../../settings/types";
@@ -17,7 +16,6 @@ export const PlayView: React.FC<PlayViewProps> = ({
     settings,
     setSettings,
 }) => {
-    const history = useHistory();
     const timeMs = useTime({
         startTime: settings.time + (settings.time - settings.remaining),
     });
@@ -33,21 +31,17 @@ export const PlayView: React.FC<PlayViewProps> = ({
         }
     }, [setSettings, settings.time, settings, timeMs]);
 
-    const goToSettings = useCallback(() => {
-        const newSearch = setSettings({
-            remaining: settings.time,
-        });
-
-        history.push("/" + newSearch);
-    }, [history, setSettings, settings]);
-
     return (
         <main>
             <h1>Play</h1>
             <TimeDisplay value={Math.max(0, settings.remaining)} />
             <OutOfTime remaining={settings.remaining} />
-            <input onClick={goToSettings} type="button" value="Settings" />
-            <ShareButton settings={settings} />
+            <BottomButtons
+                toUri="/"
+                toText="Settings"
+                settings={settings}
+                setSettings={setSettings}
+            />
         </main>
     );
 };

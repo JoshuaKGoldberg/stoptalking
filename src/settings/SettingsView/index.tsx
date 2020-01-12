@@ -1,10 +1,9 @@
-import React, { useCallback } from "react";
-import { useHistory } from "react-router-dom";
+import React from "react";
 
 import { TimeDisplay } from "../../components/TimeDisplay";
-import { ShareButton } from "../../components/ShareButton";
 import { Settings } from "../types";
 import { SetSettings } from "../useSettings";
+import { BottomButtons } from "../../components/BottomButtons";
 
 export type SettingsViewProps = {
     settings: Settings;
@@ -15,15 +14,6 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
     settings,
     setSettings,
 }) => {
-    const history = useHistory();
-    const play = useCallback(() => {
-        const newSearch = setSettings({
-            remaining: settings.time,
-        });
-
-        history.push("/play" + newSearch);
-    }, [history, setSettings, settings]);
-
     return (
         <main>
             <h1>Settings</h1>
@@ -34,8 +24,12 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                     value={settings.time}
                 />
             </p>
-            <input onClick={play} type="button" value="Start" />
-            <ShareButton settings={settings} />
+            <BottomButtons
+                toUri="/play"
+                toText="Start"
+                settings={settings}
+                setSettings={setSettings}
+            />
         </main>
     );
 };
