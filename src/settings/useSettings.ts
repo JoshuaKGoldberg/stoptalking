@@ -1,10 +1,8 @@
 import { useCallback, useState } from "react";
 
 import { useQuery } from "../hooks/useQuery";
+import { minuteMs } from "../time";
 import { Settings } from "./types";
-
-const secondMs = 1000;
-const minuteMs = secondMs * 60;
 
 const defaultSettings = {
     talkTime: minuteMs * 5,
@@ -28,9 +26,9 @@ export const useSettings = () => {
             "",
             "",
             "?" +
-                Object.entries(newSettings)
-                    .map(([key, value]) => key + "=" + value)
-                    .join("&"),
+            Object.entries(newSettings)
+                .map(([key, value]) => key + "=" + value)
+                .join("&"),
         );
     }, []);
 
