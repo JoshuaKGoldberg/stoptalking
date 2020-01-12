@@ -30,7 +30,9 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
             <p>
                 Your talk will be
                 <TimeDisplay
-                    onChange={talkTime => setSettings({ talkTime })}
+                    onChange={talkTime =>
+                        setSettings({ talkTime, talkTimeRemaining: talkTime })
+                    }
                     value={settings.talkTime}
                 />
             </p>
