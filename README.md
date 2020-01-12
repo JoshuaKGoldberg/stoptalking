@@ -7,10 +7,10 @@
 
 > 📣 _Your time is up, get off the stage!_
 
- Countdown timer to play speakers out with music.
+Countdown timer to play speakers out with music.
 React app written in React+TypeScript using create-react-app.
 
-#   Usage
+# Usage
 
 You probably want to develop with this locally:
 

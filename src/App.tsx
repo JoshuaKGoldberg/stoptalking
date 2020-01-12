@@ -1,16 +1,23 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import styles from "./styles.module.css";
-import { useTime } from "./hooks/useTime";
+import { useSettings } from "./settings/useSettings";
+import { SettingsView } from "./settings/SettingsView";
 
 const App: React.FC = () => {
-    const time = useTime();
+    const [settings, setSettings] = useSettings();
 
     return (
-        <main>
-            <h1 className={styles.heading}>Stop talking.</h1>
-            <p>It&apos;s been {time / 1000} second(s).</p>
-        </main>
+        <Router>
+            <Switch>
+                <Route path="/">
+                    <SettingsView
+                        settings={settings}
+                        setSettings={setSettings}
+                    />
+                </Route>
+            </Switch>
+        </Router>
     );
 };
 
