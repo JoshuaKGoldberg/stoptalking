@@ -1,7 +1,6 @@
 # Stop Talking
 
 [![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-00aa00.svg)](https://prettier.io)
-![Coverage: 100%](https://img.shields.io/badge/coverage-100%25-00aa00.svg)
 ![TypeScript: Strict](https://img.shields.io/badge/typescript-strict-00aa00.svg)
 [![Circle CI](https://img.shields.io/circleci/build/github/JoshuaKGoldberg/stoptalking.svg)](https://circleci.com/gh/JoshuaKGoldberg/stoptalking)
 
