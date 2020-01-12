@@ -18,29 +18,25 @@ export const PlayView: React.FC<PlayViewProps> = ({
     setSettings,
 }) => {
     const location = useLocation();
-    const time = useTime({
-        startTime: -settings.talkTimeRemaining,
+    const timeMs = useTime({
+        startTime: -settings.remaining,
     });
-    console.log("Time is now", time);
 
     useEffect(() => {
-        if (settings.talkTime - time !== settings.talkTimeRemaining) {
+        if (settings.time - timeMs !== settings.remaining) {
             setSettings({
-                talkTimeRemaining: settings.talkTime - time,
+                remaining: settings.time - timeMs,
             });
         }
-    }, [setSettings, settings.talkTime, settings.talkTimeRemaining, time]);
+    }, [setSettings, settings.time, settings.remaining, timeMs]);
 
     return (
         <main>
             <h1>Play</h1>
             <TimeDisplay
-                value={Math.max(
-                    0,
-                    settings.talkTimeRemaining ?? settings.talkTime,
-                )}
+                value={Math.max(0, settings.remaining ?? settings.time)}
             />
-            <OutOfTime talkTimeRemaining={settings.talkTimeRemaining} />
+            <OutOfTime remaining={settings.remaining} />
             <Link
                 to={{
                     pathname: "/",

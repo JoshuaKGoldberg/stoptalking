@@ -1,13 +1,13 @@
 import React from "react";
 
 export type OutOfTimeProps = {
-    talkTimeRemaining: number;
+    remaining: number;
 };
 
-export const OutOfTime: React.FC<OutOfTimeProps> = ({ talkTimeRemaining }) => {
-    if (talkTimeRemaining >= 0) {
+export const OutOfTime: React.FC<OutOfTimeProps> = ({ remaining }) => {
+    if (remaining >= 0) {
         return null;
     }
 
-    return <p>{-talkTimeRemaining / 1000} second(s) Out of time!</p>;
+    return <p>{-remaining / 1000} second(s) Out of time!</p>;
 };

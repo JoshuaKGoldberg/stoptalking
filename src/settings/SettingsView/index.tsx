@@ -18,11 +18,11 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
     const history = useHistory();
     const play = useCallback(() => {
         const newSearch = setSettings({
-            talkTimeRemaining: settings.talkTime,
+            remaining: settings.time,
         });
 
         history.push("/play" + newSearch);
-    }, [history, setSettings, settings.talkTime]);
+    }, [history, setSettings, settings.time]);
 
     return (
         <main>
@@ -30,10 +30,8 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
             <p>
                 Your talk will be
                 <TimeDisplay
-                    onChange={talkTime =>
-                        setSettings({ talkTime, talkTimeRemaining: talkTime })
-                    }
-                    value={settings.talkTime}
+                    onChange={time => setSettings({ time, remaining: time })}
+                    value={settings.time}
                 />
             </p>
             <input onClick={play} type="button" value="Play" />

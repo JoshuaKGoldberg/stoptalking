@@ -6,8 +6,8 @@ import { stringifySearch } from "../utils/search";
 import { Settings } from "./types";
 
 const defaultSettings = {
-    talkTime: minuteMs * 5,
-    talkTimeRemaining: minuteMs * 5,
+    time: minuteMs * 5,
+    remaining: minuteMs * 5,
 };
 
 export const useSettings = () => {
@@ -16,12 +16,10 @@ export const useSettings = () => {
     const [settings, setSettings] = useState<Settings>({
         ...defaultSettings,
         ...query,
-        talkTime: query.talkTime
-            ? parseInt(query.talkTime)
-            : defaultSettings.talkTime,
-        talkTimeRemaining: query.talkTimeRemaining
-            ? parseInt(query.talkTimeRemaining)
-            : defaultSettings.talkTimeRemaining,
+        time: query.time ? parseInt(query.time) : defaultSettings.time,
+        remaining: query.remaining
+            ? parseInt(query.remaining)
+            : defaultSettings.remaining,
     });
 
     const setSettingsAndHistory = useCallback(
