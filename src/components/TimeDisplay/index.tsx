@@ -1,9 +1,10 @@
 import React from "react";
 
-import styles from "./styles.module.css";
 import { minuteMs, secondMs } from "../../time";
+import styles from "./styles.module.css";
+import { TimeInput } from "./TimeUnit";
 
-export type TimeDisplayOnChange = (minutes: number, seconds: number) => void;
+export type TimeDisplayOnChange = (time: number) => void;
 
 export type TimeDisplayProps = {
     onChange?: TimeDisplayOnChange;
@@ -19,39 +20,30 @@ export const TimeDisplay: React.FC<TimeDisplayProps> = ({
 
     return (
         <span className={styles.timeDisplay}>
-            <input
-                {...(onChange
-                    ? {
-                          onChange: event =>
+            <TimeInput
+                label="Minutes"
+                onChange={
+                    onChange
+                        ? newMinutes =>
                               onChange(
-                                  event.target.valueAsNumber * minuteMs,
-                                  seconds * secondMs,
-                              ),
-                      }
-                    : { readOnly: true })}
-                aria-label="Minutes"
-                type="number"
-                min="0"
+                                  newMinutes * minuteMs + seconds * secondMs,
+                              )
+                        : undefined
+                }
                 value={minutes}
             />
-            minutes
-            <input
-                {...(onChange
-                    ? {
-                          onChange: event =>
+            <TimeInput
+                label="Seconds"
+                onChange={
+                    onChange
+                        ? newSeconds =>
                               onChange(
-                                  minutes * minuteMs,
-                                  event.target.valueAsNumber * secondMs,
-                              ),
-                      }
-                    : { readOnly: true })}
-                aria-label="Seconds"
-                max="60"
-                min="0"
-                type="number"
+                                  minutes * minuteMs + newSeconds * secondMs,
+                              )
+                        : undefined
+                }
                 value={seconds}
             />
-            seconds
         </span>
     );
 };
