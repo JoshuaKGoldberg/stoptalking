@@ -18,7 +18,10 @@ export const PlayView: React.FC<PlayViewProps> = ({
     setSettings,
 }) => {
     const location = useLocation();
-    const time = useTime();
+    const time = useTime({
+        startTime: -settings.talkTimeRemaining,
+    });
+    console.log("Time is now", time);
 
     useEffect(() => {
         if (settings.talkTime - time !== settings.talkTimeRemaining) {

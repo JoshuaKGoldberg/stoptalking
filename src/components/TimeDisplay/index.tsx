@@ -31,6 +31,7 @@ export const TimeDisplay: React.FC<TimeDisplayProps> = ({
                     : { readOnly: true })}
                 aria-label="Minutes"
                 type="number"
+                min="0"
                 value={minutes}
             />
             minutes
@@ -45,6 +46,8 @@ export const TimeDisplay: React.FC<TimeDisplayProps> = ({
                       }
                     : { readOnly: true })}
                 aria-label="Seconds"
+                max="60"
+                min="0"
                 type="number"
                 value={seconds}
             />

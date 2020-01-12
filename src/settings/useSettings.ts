@@ -19,6 +19,9 @@ export const useSettings = () => {
         talkTime: query.talkTime
             ? parseInt(query.talkTime)
             : defaultSettings.talkTime,
+        talkTimeRemaining: query.talkTimeRemaining
+            ? parseInt(query.talkTimeRemaining)
+            : defaultSettings.talkTimeRemaining,
     });
 
     const setSettingsAndHistory = useCallback(

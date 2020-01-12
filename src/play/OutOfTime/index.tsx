@@ -9,5 +9,5 @@ export const OutOfTime: React.FC<OutOfTimeProps> = ({ talkTimeRemaining }) => {
         return null;
     }
 
-    return <p>{-talkTimeRemaining} second(s) Out of time!</p>;
+    return <p>{-talkTimeRemaining / 1000} second(s) Out of time!</p>;
 };
