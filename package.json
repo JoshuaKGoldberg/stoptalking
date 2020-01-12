@@ -17,7 +17,7 @@
         "react-dom": "16.12.0",
         "react-router-dom": "^5.1.2"
     },
-    "description": "Countdown timer to play speakers out with music.",
+    "description": "Countdown timer to beep speakers out.",
     "devDependencies": {
         "@testing-library/jest-dom": "4.2.4",
         "@testing-library/react": "9.4.0",

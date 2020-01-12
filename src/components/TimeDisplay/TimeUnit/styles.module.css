@@ -1,5 +1,11 @@
-.timeInput {
+.timeUnit {
     display: flex;
     flex-direction: column;
     text-transform: lowercase;
+    width: 100%;
+}
+
+.timeInput {
+    font-size: 5rem;
+    text-align: center;
 }

@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useCallback } from "react";
 
 import { BottomButtons } from "../../components/BottomButtons";
+import { HiddenHeading } from "../../components/HiddenHeading";
+import { Layout } from "../../components/Layout";
 import { TimeDisplay } from "../../components/TimeDisplay";
 import { useTime } from "../../hooks/useTime";
 import { Settings } from "../../settings/types";
@@ -47,11 +49,11 @@ export const PlayView: React.FC<PlayViewProps> = ({
     }, [resetTime, setSettings, settings.time]);
 
     return (
-        <main>
-            <h1>Play</h1>
+        <Layout>
+            <HiddenHeading>Play</HiddenHeading>
+            <Controls paused={paused} setPaused={setPaused} restart={restart} />
             <TimeDisplay value={Math.max(0, settings.remaining)} />
             <OutOfTime audio={audio} over={-settings.remaining} />
-            <Controls paused={paused} setPaused={setPaused} restart={restart} />
             <BottomButtons
                 audio={audio}
                 toggleAudio={toggleAudio}
@@ -60,6 +62,6 @@ export const PlayView: React.FC<PlayViewProps> = ({
                 settings={settings}
                 setSettings={setSettings}
             />
-        </main>
+        </Layout>
     );
 };

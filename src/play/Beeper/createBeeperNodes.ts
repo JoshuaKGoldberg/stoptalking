@@ -34,7 +34,7 @@ export const createBeeper = () => {
     const stop = () => {
         source.stop();
         modulator.stop();
-    }
+    };
 
     return { setVolume, stop };
 };

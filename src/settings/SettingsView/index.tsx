@@ -1,9 +1,12 @@
 import React from "react";
 
+import { BottomButtons } from "../../components/BottomButtons";
+import { HiddenHeading } from "../../components/HiddenHeading";
+import { Layout } from "../../components/Layout";
 import { TimeDisplay } from "../../components/TimeDisplay";
 import { Settings } from "../types";
 import { SetSettings } from "../useSettings";
-import { BottomButtons } from "../../components/BottomButtons";
+import styles from "./styles.module.css";
 
 export type SettingsViewProps = {
     audio: boolean;
@@ -19,15 +22,13 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
     toggleAudio,
 }) => {
     return (
-        <main>
-            <h1>Settings</h1>
-            <p>
-                Your talk will be
-                <TimeDisplay
-                    onChange={time => setSettings({ time, remaining: time })}
-                    value={settings.time}
-                />
-            </p>
+        <Layout>
+            <HiddenHeading>Settings Page</HiddenHeading>
+            <div className={styles.talkNotice}>Your talk will be</div>
+            <TimeDisplay
+                onChange={time => setSettings({ time, remaining: time })}
+                value={settings.time}
+            />
             <BottomButtons
                 audio={audio}
                 toggleAudio={toggleAudio}
@@ -36,6 +37,6 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                 settings={settings}
                 setSettings={setSettings}
             />
-        </main>
+        </Layout>
     );
 };

@@ -1,0 +1,7 @@
+.hiddenHeading {
+    height: 1px;
+    left: 100%;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+}

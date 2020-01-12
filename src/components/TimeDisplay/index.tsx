@@ -2,7 +2,7 @@ import React from "react";
 
 import { minuteMs, secondMs } from "../../time";
 import styles from "./styles.module.css";
-import { TimeInput } from "./TimeUnit";
+import { TimeUnit } from "./TimeUnit";
 
 export type TimeDisplayOnChange = (time: number) => void;
 
@@ -20,7 +20,7 @@ export const TimeDisplay: React.FC<TimeDisplayProps> = ({
 
     return (
         <span className={styles.timeDisplay}>
-            <TimeInput
+            <TimeUnit
                 label="Minutes"
                 onChange={
                     onChange
@@ -32,7 +32,8 @@ export const TimeDisplay: React.FC<TimeDisplayProps> = ({
                 }
                 value={minutes}
             />
-            <TimeInput
+            <div className={styles.spacer} />
+            <TimeUnit
                 label="Seconds"
                 onChange={
                     onChange

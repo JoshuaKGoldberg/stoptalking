@@ -1,12 +1,13 @@
 .timeDisplay {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     font-size: 2rem;
-    grid-template-columns: 50% 50%;
+    row-gap: 1rem;
     text-align: center;
 }
 
-.timeDisplay input {
-    font-size: 3rem;
-    grid-row: 1;
-    text-align: center;
+.spacer {
+    height: 2rem;
 }

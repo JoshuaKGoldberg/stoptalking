@@ -2,13 +2,13 @@ import React from "react";
 
 import styles from "./styles.module.css";
 
-export type TimeInputProps = {
+export type TimeUnitProps = {
     label: string;
     onChange?: (newValue: number) => void;
     value: number;
 };
 
-export const TimeInput: React.FC<TimeInputProps> = ({
+export const TimeUnit: React.FC<TimeUnitProps> = ({
     label,
     onChange,
     value,
@@ -16,7 +16,7 @@ export const TimeInput: React.FC<TimeInputProps> = ({
     const labelId = `label-${label}`;
 
     return (
-        <span className={styles.timeInput}>
+        <span className={styles.timeUnit}>
             <input
                 {...(onChange
                     ? {
@@ -26,6 +26,7 @@ export const TimeInput: React.FC<TimeInputProps> = ({
                     : { readOnly: true })}
                 aria-labelledby={labelId}
                 aria-live="assertive"
+                className={styles.timeInput}
                 type="number"
                 min="0"
                 value={value}
