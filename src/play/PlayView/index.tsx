@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 import { BottomButtons } from "../../components/BottomButtons";
 import { TimeDisplay } from "../../components/TimeDisplay";
@@ -6,6 +6,7 @@ import { useTime } from "../../hooks/useTime";
 import { Settings } from "../../settings/types";
 import { SetSettings } from "../../settings/useSettings";
 import { OutOfTime } from "../OutOfTime";
+import { Controls } from "./Controls";
 
 export type PlayViewProps = {
     markInteracted?: () => void;
@@ -18,7 +19,9 @@ export const PlayView: React.FC<PlayViewProps> = ({
     settings,
     setSettings,
 }) => {
-    const timeMs = useTime({
+    const [paused, setPaused] = useState(false);
+    const [timeMs, resetTime] = useTime({
+        paused,
         startTime: settings.time + (settings.time - settings.remaining),
     });
 
@@ -33,6 +36,13 @@ export const PlayView: React.FC<PlayViewProps> = ({
         }
     }, [setSettings, settings.time, settings, timeMs]);
 
+    const restart = useCallback(() => {
+        setSettings({
+            remaining: settings.time,
+        });
+        resetTime();
+    }, [resetTime, setSettings, settings.time]);
+
     return (
         <main>
             <h1>Play</h1>
@@ -41,6 +51,7 @@ export const PlayView: React.FC<PlayViewProps> = ({
                 interacted={markInteracted === undefined}
                 remaining={settings.remaining}
             />
+            <Controls paused={paused} setPaused={setPaused} restart={restart} />
             <BottomButtons
                 markInteracted={markInteracted}
                 toUri="/"

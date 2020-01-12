@@ -2,6 +2,7 @@
     background: white;
     border: none;
     box-shadow: 0 0 0 5px black;
+    cursor: pointer;
     font-size: 1.5rem;
     font-weight: bold;
     height: 7.5rem;

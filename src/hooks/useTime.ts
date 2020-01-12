@@ -1,24 +1,31 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 import useGlobals from "./useGlobals";
 
 export const frequency = 1000;
 
 export type UseTimeSettings = {
+    paused?: boolean;
     startTime?: number;
 };
 
-export const useTime = ({ startTime = 0 } = {}) => {
+export const useTime = ({ paused, startTime = 0 }: UseTimeSettings = {}) => {
     const { clearInterval, setInterval } = useGlobals();
     const [time, setTime] = useState(startTime);
 
     useEffect(() => {
         const handle = setInterval(() => {
-            setTime(time + frequency);
+            if (!paused) {
+                setTime(time + frequency);
+            }
         }, frequency);
 
         return () => clearInterval(handle);
-    }, [clearInterval, time, setInterval, setTime]);
+    }, [clearInterval, time, setInterval, setTime, paused]);
 
-    return time;
+    const resetTime = useCallback(() => {
+        setTime(startTime);
+    }, [startTime]);
+
+    return [time, resetTime] as const;
 };
