@@ -14,7 +14,7 @@ const App: React.FC = () => {
                 <Route path="/play">
                     <PlayView settings={settings} setSettings={setSettings} />
                 </Route>
-                <Route path="/">
+                <Route key={settings.remaining} path="/">
                     <SettingsView
                         settings={settings}
                         setSettings={setSettings}

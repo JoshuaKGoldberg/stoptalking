@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useEffect, useCallback } from "react";
+import { useHistory } from "react-router-dom";
 
 import { ShareButton } from "../../components/ShareButton";
 import { TimeDisplay } from "../../components/TimeDisplay";
@@ -17,34 +17,36 @@ export const PlayView: React.FC<PlayViewProps> = ({
     settings,
     setSettings,
 }) => {
-    const location = useLocation();
+    const history = useHistory();
     const timeMs = useTime({
-        startTime: -settings.remaining,
+        startTime: settings.time + (settings.time - settings.remaining),
     });
 
     useEffect(() => {
-        if (settings.time - timeMs !== settings.remaining) {
+        const elapsed = timeMs - settings.time;
+        const actualRemaining = settings.time - elapsed;
+
+        if (actualRemaining !== settings.remaining) {
             setSettings({
-                remaining: settings.time - timeMs,
+                remaining: actualRemaining,
             });
         }
-    }, [setSettings, settings.time, settings.remaining, timeMs]);
+    }, [setSettings, settings.time, settings, timeMs]);
+
+    const goToSettings = useCallback(() => {
+        const newSearch = setSettings({
+            remaining: settings.time,
+        });
+
+        history.push("/" + newSearch);
+    }, [history, setSettings, settings]);
 
     return (
         <main>
             <h1>Play</h1>
-            <TimeDisplay
-                value={Math.max(0, settings.remaining ?? settings.time)}
-            />
+            <TimeDisplay value={Math.max(0, settings.remaining)} />
             <OutOfTime remaining={settings.remaining} />
-            <Link
-                to={{
-                    pathname: "/",
-                    search: location.search,
-                }}
-            >
-                Back to Settings
-            </Link>
+            <input onClick={goToSettings} type="button" value="Settings" />
             <ShareButton settings={settings} />
         </main>
     );

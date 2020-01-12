@@ -22,7 +22,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
         });
 
         history.push("/play" + newSearch);
-    }, [history, setSettings, settings.time]);
+    }, [history, setSettings, settings]);
 
     return (
         <main>
@@ -34,7 +34,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                     value={settings.time}
                 />
             </p>
-            <input onClick={play} type="button" value="Play" />
+            <input onClick={play} type="button" value="Start" />
             <ShareButton settings={settings} />
         </main>
     );
