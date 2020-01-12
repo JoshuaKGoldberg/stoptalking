@@ -7,6 +7,7 @@ import { Settings } from "./types";
 
 const defaultSettings = {
     talkTime: minuteMs * 5,
+    talkTimeRemaining: minuteMs * 5,
 };
 
 export const useSettings = () => {

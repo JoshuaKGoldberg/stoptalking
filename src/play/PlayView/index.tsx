@@ -37,6 +37,7 @@ export const PlayView: React.FC<PlayViewProps> = ({
                     settings.talkTimeRemaining ?? settings.talkTime,
                 )}
             />
+            <OutOfTime talkTimeRemaining={settings.talkTimeRemaining} />
             <Link
                 to={{
                     pathname: "/",
@@ -46,9 +47,6 @@ export const PlayView: React.FC<PlayViewProps> = ({
                 Back to Settings
             </Link>
             <ShareButton settings={settings} />
-            {settings.talkTimeRemaining && settings.talkTimeRemaining < 0 && (
-                <OutOfTime over={-Math.min(0, settings.talkTimeRemaining)} />
-            )}
         </main>
     );
 };

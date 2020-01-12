@@ -1,36 +1,13 @@
-import React, { useEffect, useState } from "react";
-import YouTube, { PlayerVars } from "react-youtube";
+import React from "react";
 
 export type OutOfTimeProps = {
-    over: number;
+    talkTimeRemaining: number;
 };
 
-const playerVars: PlayerVars = {
-    autoplay: 1,
-    controls: 0,
-    enablejsapi: 1,
-    start: 100,
-};
+export const OutOfTime: React.FC<OutOfTimeProps> = ({ talkTimeRemaining }) => {
+    if (talkTimeRemaining >= 0) {
+        return null;
+    }
 
-export const OutOfTime: React.FC<OutOfTimeProps> = ({ over }) => {
-    const [player, setPlayer] = useState();
-
-    useEffect(() => {
-        if (!player) {
-            return;
-        }
-
-        player.setVolume(Math.min(over / 10000, 100));
-    }, [over, player]);
-
-    return (
-        <YouTube
-            opts={{ playerVars }}
-            onReady={event => {
-                setPlayer(event.target);
-                event.target.setVolume(1);
-            }}
-            videoId="RxabLA7UQ9k"
-        />
-    );
+    return <p>{-talkTimeRemaining} second(s) Out of time!</p>;
 };
