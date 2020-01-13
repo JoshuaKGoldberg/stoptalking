@@ -1,6 +1,7 @@
 import React from "react";
 
 import styles from "./styles.module.css";
+import { pluralize } from "../../../utils/plurals";
 
 export type TimeUnitProps = {
     label: string;
@@ -35,7 +36,7 @@ export const TimeUnit: React.FC<TimeUnitProps> = ({
                 aria-live="assertive"
                 className={styles.timeInput}
             />
-            <span id={labelId}>{label}</span>
+            <span id={labelId}>{pluralize(label, value)}</span>
         </span>
     );
 };

@@ -21,7 +21,7 @@ export const TimeDisplay: React.FC<TimeDisplayProps> = ({
     return (
         <span className={styles.timeDisplay}>
             <TimeUnit
-                label="Minutes"
+                label="Minute"
                 onChange={
                     onChange
                         ? newMinutes =>
@@ -33,7 +33,7 @@ export const TimeDisplay: React.FC<TimeDisplayProps> = ({
                 value={minutes}
             />
             <TimeUnit
-                label="Seconds"
+                label="Second"
                 onChange={
                     onChange
                         ? newSeconds =>
