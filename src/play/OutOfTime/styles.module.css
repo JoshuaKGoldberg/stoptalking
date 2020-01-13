@@ -1,6 +1,7 @@
 .notice {
     font-size: 10vh;
     font-weight: bold;
+    position: relative;
     margin: 0 0 1rem;
     text-align: center;
 }

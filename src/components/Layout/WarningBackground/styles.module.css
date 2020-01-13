@@ -1,14 +1,14 @@
 .background,
 .warning,
-.error {
-    background: white;
+.error,
+.errorGlow {
     bottom: 0;
     left: 0;
     opacity: 1;
     position: absolute;
     right: 0;
     top: 0;
-    transition: opacity 350ms;
+    transition: opacity 350ms, box-shadow 1000ms;
 }
 
 .background.active {
@@ -20,5 +20,9 @@
 }
 
 .error {
+    box-shadow: 0 0 5rem red inset;
+}
+
+.errorGlow {
     box-shadow: 0 0 2rem red inset, 0 0 10rem #ff6060 inset;
 }

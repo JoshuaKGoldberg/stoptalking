@@ -12,7 +12,6 @@ export const WarningBackground: React.FC<WarningBackgroundProps> = ({
 }) => {
     const opacity =
         percentage === undefined ? 0 : Math.pow(0.25, percentage * 4);
-    console.log({ opacity });
 
     return (
         <div
@@ -24,6 +23,10 @@ export const WarningBackground: React.FC<WarningBackgroundProps> = ({
         >
             <div className={styles.warning} style={{ opacity }} />
             <div className={styles.error} style={{ opacity: opacity - 1 }} />
+            <div
+                className={styles.errorGlow}
+                style={{ opacity: opacity >= 1 ? 1 : 0 }}
+            />
         </div>
     );
 };
