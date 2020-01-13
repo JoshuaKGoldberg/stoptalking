@@ -3,9 +3,9 @@
     border: none;
     box-shadow: 0 0 0 5px black;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: bold;
-    height: 5rem;
+    height: 2.5rem;
     padding: 0 1rem;
     text-transform: uppercase;
 }
@@ -14,4 +14,11 @@
     outline: none;
     box-shadow: 0 0 0 5px black inset, 0 0 0 5px white, 0 0 0 7.5px black;
     z-index: 1;
+}
+
+@media (min-height: 700px) and (min-width: 350px) {
+    .inputButton {
+        font-size: 1.5rem;
+        height: 3rem;
+    }
 }

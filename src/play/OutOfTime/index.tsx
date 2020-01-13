@@ -1,9 +1,10 @@
 import React from "react";
 
 import { useBeeper } from "../Beeper/useBeeper";
+import styles from "./styles.module.css";
 
 export type OutOfTimeProps = {
-    audio: boolean;
+    audio?: boolean;
     over: number;
 };
 
@@ -15,6 +16,8 @@ export const OutOfTime: React.FC<OutOfTimeProps> = ({ audio, over }) => {
     }
 
     return (
-        <p>{over >= 0 ? "Out of time" : `${-over / 1000} second(s) left`}!</p>
+        <p className={styles.notice}>
+            {over >= 0 ? "Out of time" : `${-over / 1000} second(s) left`}!
+        </p>
     );
 };

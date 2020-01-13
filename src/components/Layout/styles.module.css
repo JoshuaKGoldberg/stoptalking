@@ -1,10 +1,16 @@
 .layout {
-    bottom: 1rem;
+    bottom: 20px;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 5rem auto min-content;
-    left: 1rem;
+    grid-template-rows: min-content auto min-content;
+    left: 10px;
     position: absolute;
-    right: 1rem;
-    top: 1rem;
+    right: 10px;
+    top: 5px;
+}
+
+@media (min-width: 777px) {
+    .layout {
+        bottom: 5px;
+    }
 }

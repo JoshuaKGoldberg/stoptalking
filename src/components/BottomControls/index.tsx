@@ -1,14 +1,15 @@
 import React, { useCallback } from "react";
 import { useHistory } from "react-router-dom";
 
+import { ButtonsList } from "../ButtonsList";
 import { InputButton } from "../InputButton";
 import { Settings } from "../../settings/types";
 import { SetSettings } from "../../settings/useSettings";
 import { ShareButton } from "../ShareButton";
-import styles from "./styles.module.css";
+import { ZenZone } from "../ZenZone";
 
-export type BottomButtonsProps = {
-    audio: boolean;
+export type BottomControlsProps = {
+    audio?: boolean;
     setSettings: SetSettings;
     settings: Settings;
     toggleAudio: () => void;
@@ -16,7 +17,7 @@ export type BottomButtonsProps = {
     toUri: string;
 };
 
-export const BottomButtons: React.FC<BottomButtonsProps> = ({
+export const BottomControls: React.FC<BottomControlsProps> = ({
     audio,
     setSettings,
     settings,
@@ -35,13 +36,15 @@ export const BottomButtons: React.FC<BottomButtonsProps> = ({
     }, [history, setSettings, settings.time, toUri]);
 
     return (
-        <nav className={styles.bottomButtons}>
-            <InputButton onClick={navigate} value={toText} />
-            <ShareButton settings={settings} />
-            <InputButton
-                onClick={toggleAudio}
-                value={audio ? "Disable beeps" : "Enable beeps"}
-            />
-        </nav>
+        <ZenZone zen={settings.zen}>
+            <ButtonsList>
+                <InputButton onClick={navigate} value={toText} />
+                <ShareButton settings={settings} />
+                <InputButton
+                    onClick={toggleAudio}
+                    value={audio ? "Disable beeps" : "Enable beeps"}
+                />
+            </ButtonsList>
+        </ZenZone>
     );
 };

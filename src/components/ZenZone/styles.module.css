@@ -1,0 +1,10 @@
+.zone,
+.zoneZen:hover,
+.zoneZen:focus-within {
+    opacity: 1;
+    transition: 350ms opacity;
+}
+
+.zoneZen {
+    opacity: 0;
+}

@@ -1,0 +1,12 @@
+.notice {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 0 1rem;
+    text-align: center;
+}
+
+@media (min-height: 777px) and (max-width: 777px) {
+    .notice {
+        font-size: 5vh;
+    }
+}

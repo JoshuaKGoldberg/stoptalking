@@ -1,4 +1,4 @@
-// import cx from 'classnames';
+import cx from "classnames";
 import React from "react";
 
 import styles from "./styles.module.css";
@@ -10,9 +10,7 @@ export const InputButton: React.FC<React.InputHTMLAttributes<
         <input
             type="button"
             {...props}
-            className={[className, styles.inputButton]
-                .filter(Boolean)
-                .join(" ")}
+            className={cx(styles.inputButton, className)}
         />
     );
 };

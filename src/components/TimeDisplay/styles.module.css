@@ -6,12 +6,9 @@
     font-family: monospace;
     font-weight: bold;
     justify-content: center;
+    margin: 1rem 5%;
     row-gap: 1rem;
     text-align: center;
-}
-
-.spacer {
-    height: 2rem;
 }
 
 @media (min-width: 777px) {
@@ -20,11 +17,6 @@
         grid-template-columns: 50% 50%;
         grid-template-rows: 100%;
         font-size: 5rem;
-        margin: 0 5%;
         width: 90%;
-    }
-
-    .spacer {
-        display: none;
     }
 }

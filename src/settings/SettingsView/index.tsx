@@ -1,6 +1,6 @@
 import React from "react";
 
-import { BottomButtons } from "../../components/BottomButtons";
+import { BottomControls } from "../../components/BottomControls";
 import { HiddenHeading } from "../../components/HiddenHeading";
 import { Layout } from "../../components/Layout";
 import { TimeDisplay } from "../../components/TimeDisplay";
@@ -29,7 +29,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                 onChange={time => setSettings({ time, remaining: time })}
                 value={settings.time}
             />
-            <BottomButtons
+            <BottomControls
                 audio={audio}
                 toggleAudio={toggleAudio}
                 toUri="/play"

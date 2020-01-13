@@ -32,7 +32,6 @@ export const TimeDisplay: React.FC<TimeDisplayProps> = ({
                 }
                 value={minutes}
             />
-            <div className={styles.spacer} />
             <TimeUnit
                 label="Seconds"
                 onChange={

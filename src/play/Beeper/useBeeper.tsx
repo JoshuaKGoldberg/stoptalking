@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { BeeperNodes, createBeeper } from "./createBeeperNodes";
 
 export type BeeperSettings = {
-    audio: boolean;
+    audio?: boolean;
     over: number;
 };
 
