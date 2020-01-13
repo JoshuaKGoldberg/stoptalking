@@ -2,26 +2,28 @@ import React from "react";
 
 import { ButtonsList } from "../../../components/ButtonsList";
 import { InputButton } from "../../../components/Inputs/InputButton";
-import { ZenZone } from "../../../components/ZenZone";
 import { Notice } from "../../../components/Notice";
+import { ZenZone } from "../../../components/ZenZone";
+import { Settings } from "../../../types";
+import { TopMessage } from "./TopMessage";
 
 export type TopControlsProps = {
     paused?: boolean;
     restart: () => void;
     setPaused: (newPaused: boolean) => void;
+    settings: Settings;
     toggleZen: () => void;
-    zen?: boolean;
 };
 
 export const TopControls: React.FC<TopControlsProps> = ({
     paused,
     restart,
     setPaused,
+    settings,
     toggleZen,
-    zen,
 }) => {
     return (
-        <ZenZone zen={zen}>
+        <ZenZone zen={settings.zen}>
             <ButtonsList>
                 <InputButton
                     onClick={() => setPaused(!paused)}
@@ -30,10 +32,12 @@ export const TopControls: React.FC<TopControlsProps> = ({
                 <InputButton onClick={restart} value="Restart" />
                 <InputButton
                     onClick={toggleZen}
-                    value={zen ? "Zen Off" : "Zen On"}
+                    value={settings.zen ? "Zen Off" : "Zen On"}
                 />
             </ButtonsList>
-            <Notice>{paused ? "Your talk will be:" : "You have:"}</Notice>
+            <Notice>
+                <TopMessage paused={paused} settings={settings} />
+            </Notice>
         </ZenZone>
     );
 };

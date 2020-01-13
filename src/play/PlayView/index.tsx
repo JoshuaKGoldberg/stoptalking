@@ -55,8 +55,8 @@ export const PlayView: React.FC<PlayViewProps> = ({
                 paused={paused}
                 restart={restart}
                 setPaused={setPaused}
+                settings={settings}
                 toggleZen={() => setSettings({ zen: !settings.zen })}
-                zen={settings.zen}
             />
             <TimeDisplay value={Math.max(0, settings.remaining)} />
             <BottomControls
