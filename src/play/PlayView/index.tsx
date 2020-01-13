@@ -26,7 +26,7 @@ export const PlayView: React.FC<PlayViewProps> = ({
     const [startTime, setStartTime] = useState(
         settings.time * 2 - settings.remaining,
     );
-    const [paused, setPaused] = useState(false);
+    const [paused, setPaused] = useState(true);
     const [timeMs, resetTime] = useTime({ paused, startTime });
 
     useEffect(() => {
