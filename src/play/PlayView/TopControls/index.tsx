@@ -26,13 +26,7 @@ export const TopControls: React.FC<TopControlsProps> = ({
                     onClick={() => setPaused(!paused)}
                     value={paused ? "Go!" : "Pause"}
                 />
-                <InputButton
-                    onClick={() => {
-                        restart();
-                        setPaused(true);
-                    }}
-                    value="Restart"
-                />
+                <InputButton onClick={restart} value="Restart" />
                 <InputButton
                     onClick={toggleZen}
                     value={zen ? "Zen Off" : "Zen On"}

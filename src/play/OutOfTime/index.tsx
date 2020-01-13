@@ -11,9 +11,13 @@ export type OutOfTimeProps = {
 export const OutOfTime: React.FC<OutOfTimeProps> = ({ audio, over }) => {
     useBeeper({ over, audio });
 
+    if (over > 0) {
+        return null;
+    }
+
     return (
         <p className={styles.notice}>
-            {over >= 0 ? "Out of time" : `${-over / 1000} second(s) left`}!
+            {over === 0 ? "Out of time" : `${-over / 1000} second(s) left`}!
         </p>
     );
 };

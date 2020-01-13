@@ -46,6 +46,7 @@ export const PlayView: React.FC<PlayViewProps> = ({
         });
         setStartTime(settings.time);
         resetTime();
+        setPaused(true);
     }, [resetTime, setSettings, settings.time]);
 
     return (
