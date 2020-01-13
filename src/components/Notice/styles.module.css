@@ -1,0 +1,12 @@
+.notice {
+    display: none;
+}
+
+@media (min-height: 777px) and (min-width: 777px) {
+    .notice {
+        display: block;
+        font-size: 3rem;
+        padding: 1.5rem;
+        text-align: center;
+    }
+}

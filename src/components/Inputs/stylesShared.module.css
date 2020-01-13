@@ -1,4 +1,4 @@
-.inputButton {
+.input {
     background: white;
     border: none;
     box-shadow: 0 0 0 5px black;
@@ -10,14 +10,18 @@
     text-transform: uppercase;
 }
 
-.inputButton:focus {
+.input:focus {
     outline: none;
     box-shadow: 0 0 0 5px black inset, 0 0 0 5px white, 0 0 0 7.5px black;
     z-index: 1;
 }
 
+.inputLink {
+    text-decoration: none;
+}
+
 @media (min-height: 700px) and (min-width: 350px) {
-    .inputButton {
+    .input {
         font-size: 1.5rem;
         height: 3rem;
     }

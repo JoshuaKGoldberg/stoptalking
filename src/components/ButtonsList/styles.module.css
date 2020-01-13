@@ -2,7 +2,7 @@
     display: grid;
     grid-template-rows: 33% 34% 33%;
     padding: 5px 0;
-    row-gap: 10px;
+    row-gap: 7.5px;
 }
 
 @media (min-width: 777px) {

@@ -1,44 +1,35 @@
-import React, { useCallback } from "react";
-import { useHistory } from "react-router-dom";
+import React from "react";
 
 import { ButtonsList } from "../ButtonsList";
-import { InputButton } from "../InputButton";
-import { Settings } from "../../settings/types";
-import { SetSettings } from "../../settings/useSettings";
+import { InputButton } from "../Inputs/InputButton";
+import { InputLink } from "../Inputs/InputLink";
+import { Settings } from "../../types";
 import { ShareButton } from "../ShareButton";
 import { ZenZone } from "../ZenZone";
+import { Notice } from "../Notice";
 
 export type BottomControlsProps = {
     audio?: boolean;
-    setSettings: SetSettings;
+    remaining: number;
     settings: Settings;
     toggleAudio: () => void;
-    toText: string;
-    toUri: string;
 };
 
 export const BottomControls: React.FC<BottomControlsProps> = ({
     audio,
-    setSettings,
+    remaining,
     settings,
     toggleAudio,
-    toText,
-    toUri,
 }) => {
-    const history = useHistory();
-
-    const navigate = useCallback(() => {
-        const newSearch = setSettings({
-            remaining: settings.time,
-        });
-
-        history.push(toUri + newSearch);
-    }, [history, setSettings, settings.time, toUri]);
-
     return (
         <ZenZone zen={settings.zen}>
+            <Notice>
+                {remaining <= 0 ? "Out of time!" : "Please don't go over."}
+            </Notice>
             <ButtonsList>
-                <InputButton onClick={navigate} value={toText} />
+                <InputLink href="https://github.com/JoshuaKGoldberg/stoptalking">
+                    View source
+                </InputLink>
                 <ShareButton settings={settings} />
                 <InputButton
                     onClick={toggleAudio}

@@ -1,8 +1,9 @@
 import React from "react";
 
 import { ButtonsList } from "../../../components/ButtonsList";
-import { InputButton } from "../../../components/InputButton";
+import { InputButton } from "../../../components/Inputs/InputButton";
 import { ZenZone } from "../../../components/ZenZone";
+import { Notice } from "../../../components/Notice";
 
 export type TopControlsProps = {
     paused?: boolean;
@@ -32,6 +33,7 @@ export const TopControls: React.FC<TopControlsProps> = ({
                     value={zen ? "Zen Off" : "Zen On"}
                 />
             </ButtonsList>
+            <Notice>{paused ? "Your talk will be:" : "You have:"}</Notice>
         </ZenZone>
     );
 };

@@ -1,8 +1,8 @@
 import { useCallback, useState } from "react";
 
-import { useQuery } from "../hooks/useQuery";
-import { minuteMs } from "../time";
-import { stringifySearch } from "../utils/search";
+import { useQuery } from "./hooks/useQuery";
+import { minuteMs } from "./time";
+import { stringifySearch } from "./utils/search";
 import { Settings } from "./types";
 
 const defaultSettings = {

@@ -1,0 +1,8 @@
+.link {
+    align-items: center;
+    color: black;
+    display: flex;
+    font-family: sans-serif;
+    justify-content: center;
+    text-decoration: none;
+}

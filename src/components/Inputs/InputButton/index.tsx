@@ -1,7 +1,7 @@
 import cx from "classnames";
 import React from "react";
 
-import styles from "./styles.module.css";
+import stylesShared from "../stylesShared.module.css";
 
 export const InputButton: React.FC<React.InputHTMLAttributes<
     HTMLInputElement
@@ -10,7 +10,7 @@ export const InputButton: React.FC<React.InputHTMLAttributes<
         <input
             type="button"
             {...props}
-            className={cx(styles.inputButton, className)}
+            className={cx(stylesShared.input, className)}
         />
     );
 };

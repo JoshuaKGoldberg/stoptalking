@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 import useGlobals from "../../hooks/useGlobals";
-import { Settings } from "../../settings/types";
+import { Settings } from "../../types";
 import { stringifySearch } from "../../utils/search";
-import { InputButton } from "../InputButton";
+import { InputButton } from "../Inputs/InputButton";
 
 export type ShareButtonOnChange = (minutes: number, seconds: number) => void;
 

@@ -5,9 +5,8 @@ import { HiddenHeading } from "../../components/HiddenHeading";
 import { Layout } from "../../components/Layout";
 import { TimeDisplay } from "../../components/TimeDisplay";
 import { useTime } from "../../hooks/useTime";
-import { Settings } from "../../settings/types";
-import { SetSettings } from "../../settings/useSettings";
-import { OutOfTime } from "../OutOfTime";
+import { Settings } from "../../types";
+import { SetSettings } from "../../useSettings";
 import { TopControls } from "./TopControls";
 
 export type PlayViewProps = {
@@ -50,7 +49,7 @@ export const PlayView: React.FC<PlayViewProps> = ({
     }, [resetTime, setSettings, settings.time]);
 
     return (
-        <Layout settings={settings}>
+        <Layout paused={paused} settings={settings}>
             <HiddenHeading>Play</HiddenHeading>
             <TopControls
                 paused={paused}
@@ -60,17 +59,12 @@ export const PlayView: React.FC<PlayViewProps> = ({
                 zen={settings.zen}
             />
             <TimeDisplay value={Math.max(0, settings.remaining)} />
-            <div>
-                <OutOfTime audio={audio} over={-settings.remaining} />
-                <BottomControls
-                    audio={audio}
-                    toggleAudio={toggleAudio}
-                    toUri="/"
-                    toText="Settings"
-                    settings={settings}
-                    setSettings={setSettings}
-                />
-            </div>
+            <BottomControls
+                audio={audio}
+                remaining={settings.remaining}
+                settings={settings}
+                toggleAudio={toggleAudio}
+            />
         </Layout>
     );
 };
