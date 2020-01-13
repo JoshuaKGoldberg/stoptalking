@@ -33,7 +33,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                 audio={audio}
                 toggleAudio={toggleAudio}
                 toUri="/play"
-                toText="Start"
+                toText="Ready?"
                 settings={settings}
                 setSettings={setSettings}
             />

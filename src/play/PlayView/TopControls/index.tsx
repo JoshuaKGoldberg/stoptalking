@@ -24,7 +24,7 @@ export const TopControls: React.FC<TopControlsProps> = ({
             <ButtonsList>
                 <InputButton
                     onClick={() => setPaused(!paused)}
-                    value={paused ? "Play" : "Pause"}
+                    value={paused ? "Go!" : "Pause"}
                 />
                 <InputButton
                     onClick={() => {
