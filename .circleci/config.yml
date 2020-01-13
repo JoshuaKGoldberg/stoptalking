@@ -79,7 +79,7 @@ jobs:
 
             - run: npm publish || exit 0
 
-    lint:
+    test:
         docker:
             - image: circleci/node:latest
 
@@ -98,7 +98,7 @@ workflows:
     build_and_verify:
         jobs:
             - build
-                      - test
+              - test
             - format:
                   requires:
                       - build
