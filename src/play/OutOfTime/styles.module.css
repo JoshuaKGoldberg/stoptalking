@@ -1,12 +1,12 @@
 .notice {
-    font-size: 2rem;
+    font-size: 10vh;
     font-weight: bold;
     margin: 0 0 1rem;
     text-align: center;
 }
 
-@media (min-height: 777px) and (max-width: 777px) {
+@media (max-height: 777px) and (min-width: 777px) {
     .notice {
-        font-size: 5vh;
+        font-size: 10vw;
     }
 }
