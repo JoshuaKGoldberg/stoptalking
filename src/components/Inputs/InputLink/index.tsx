@@ -12,6 +12,7 @@ export const InputLink: React.FC<React.LinkHTMLAttributes<
             target="_blank"
             {...props}
             className={cx(stylesShared.input, styles.link, className)}
+            rel="noopener noreferrer"
         >
             {children}
         </a>
