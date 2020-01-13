@@ -49,7 +49,7 @@ export const PlayView: React.FC<PlayViewProps> = ({
     }, [resetTime, setSettings, settings.time]);
 
     return (
-        <Layout>
+        <Layout settings={settings}>
             <HiddenHeading>Play</HiddenHeading>
             <TopControls
                 paused={paused}

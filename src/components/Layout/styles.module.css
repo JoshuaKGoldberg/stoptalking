@@ -1,4 +1,4 @@
-.layout {
+.layoutChildren {
     bottom: 20px;
     display: grid;
     grid-template-columns: 100%;
@@ -10,7 +10,7 @@
 }
 
 @media (min-width: 777px) {
-    .layout {
+    .layoutChildren {
         bottom: 5px;
     }
 }
