@@ -5,37 +5,21 @@ import { pluralize } from "../../../utils/plurals";
 
 export type TimeUnitProps = {
     label: string;
-    onChange?: (newValue: number) => void;
     value: number;
 };
 
-export const TimeUnit: React.FC<TimeUnitProps> = ({
-    label,
-    onChange,
-    value,
-}) => {
+export const TimeUnit: React.FC<TimeUnitProps> = ({ label, value }) => {
     const labelId = `label-${label}`;
-    const [Component, props] = onChange
-        ? ([
-              "input",
-              {
-                  onChange: (event: React.ChangeEvent<HTMLInputElement>) =>
-                      onChange(event.target.valueAsNumber),
-                  min: 0,
-                  type: "number",
-                  value,
-              },
-          ] as const)
-        : (["span", { children: value }] as const);
 
     return (
         <span className={styles.timeUnit}>
-            <Component
-                {...props}
+            <span
                 aria-labelledby={labelId}
                 aria-live="assertive"
                 className={styles.timeInput}
-            />
+            >
+                {value}
+            </span>
             <span id={labelId}>{pluralize(label, value)}</span>
         </span>
     );
