@@ -6,15 +6,12 @@ import { PlayView } from "./play/PlayView";
 
 const App: React.FC = () => {
     const [settings, setSettings] = useSettings();
-    const [audio, toggleAudio] = useConsentingAudio();
+    const ConsentingAudioContext = useConsentingAudio();
 
     return (
-        <PlayView
-            audio={audio}
-            toggleAudio={toggleAudio}
-            settings={settings}
-            setSettings={setSettings}
-        />
+        <ConsentingAudioContext>
+            <PlayView settings={settings} setSettings={setSettings} />
+        </ConsentingAudioContext>
     );
 };
 

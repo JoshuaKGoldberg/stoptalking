@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 
+import { ConsentingAudioContext } from "../../hooks/useConsentingAudio";
 import { ButtonsList } from "../ButtonsList";
 import { InputButton } from "../Inputs/InputButton";
 import { InputLink } from "../Inputs/InputLink";
@@ -9,18 +10,16 @@ import { ZenZone } from "../ZenZone";
 import { Notice } from "../Notice";
 
 export type BottomControlsProps = {
-    audio?: boolean;
     remaining: number;
     settings: Settings;
-    toggleAudio: () => void;
 };
 
 export const BottomControls: React.FC<BottomControlsProps> = ({
-    audio,
     remaining,
     settings,
-    toggleAudio,
 }) => {
+    const { audio, toggleAudio } = useContext(ConsentingAudioContext);
+
     return (
         <ZenZone zen={settings.zen}>
             <Notice>
