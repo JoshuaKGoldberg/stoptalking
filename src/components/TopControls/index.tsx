@@ -1,10 +1,10 @@
 import React from "react";
 
-import { ButtonsList } from "../../../components/ButtonsList";
-import { InputButton } from "../../../components/Inputs/InputButton";
-import { Notice } from "../../../components/Notice";
-import { ZenZone } from "../../../components/ZenZone";
-import { Settings } from "../../../types";
+import { ButtonsList } from "../ButtonsList";
+import { InputButton } from "../Inputs/InputButton";
+import { Notice } from "../Notice";
+import { ZenZone } from "../ZenZone";
+import { Settings } from "../../types";
 import { TopMessage } from "./TopMessage";
 
 export type TopControlsProps = {

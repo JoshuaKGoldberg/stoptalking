@@ -2,7 +2,7 @@ import React from "react";
 
 import { useConsentingAudio } from "./hooks/useConsentingAudio";
 import { useSettings } from "./useSettings";
-import { PlayView } from "./play/PlayView";
+import { PlayView } from "./components/PlayView";
 
 const App: React.FC = () => {
     const [settings, setSettings] = useSettings();

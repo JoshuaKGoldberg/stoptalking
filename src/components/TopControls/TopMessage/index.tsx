@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Settings } from "../../../../types";
+import { Settings } from "../../../types";
 
 export type TopMessageProps = {
     paused?: boolean;

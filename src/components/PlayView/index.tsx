@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useCallback } from "react";
 
-import { BottomControls } from "../../components/BottomControls";
-import { HiddenHeading } from "../../components/HiddenHeading";
-import { Layout } from "../../components/Layout";
-import { TimeDisplay } from "../../components/TimeDisplay";
 import { useTime } from "../../hooks/useTime";
 import { Settings } from "../../types";
 import { SetSettings } from "../../useSettings";
-import { TopControls } from "./TopControls";
+import { BottomControls } from "../BottomControls";
+import { HiddenHeading } from "../HiddenHeading";
+import { Layout } from "../Layout";
+import { TimeDisplay } from "../TimeDisplay";
+import { TopControls } from "../TopControls";
 
 export type PlayViewProps = {
     setSettings: SetSettings;
