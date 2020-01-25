@@ -10,17 +10,13 @@ import { SetSettings } from "../../useSettings";
 import { TopControls } from "./TopControls";
 
 export type PlayViewProps = {
-    audio?: boolean;
     setSettings: SetSettings;
     settings: Settings;
-    toggleAudio: () => void;
 };
 
 export const PlayView: React.FC<PlayViewProps> = ({
-    audio,
     setSettings,
     settings,
-    toggleAudio,
 }) => {
     const [startTime, setStartTime] = useState(
         settings.time * 2 - settings.remaining,
@@ -60,10 +56,8 @@ export const PlayView: React.FC<PlayViewProps> = ({
             />
             <TimeDisplay value={Math.max(0, settings.remaining)} />
             <BottomControls
-                audio={audio}
                 remaining={settings.remaining}
                 settings={settings}
-                toggleAudio={toggleAudio}
             />
         </Layout>
     );
