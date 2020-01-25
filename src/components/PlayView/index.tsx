@@ -1,48 +1,19 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React from "react";
 
-import { useTime } from "../../hooks/useTime";
-import { Settings } from "../../types";
-import { SetSettings } from "../../useSettings";
 import { BottomControls } from "../BottomControls";
 import { HiddenHeading } from "../HiddenHeading";
 import { Layout } from "../Layout";
 import { TimeDisplay } from "../TimeDisplay";
 import { TopControls } from "../TopControls";
+import { useTimeControls } from "../../hooks/useTimeControls";
+import { useSettings } from "../../useSettings";
 
-export type PlayViewProps = {
-    setSettings: SetSettings;
-    settings: Settings;
-};
-
-export const PlayView: React.FC<PlayViewProps> = ({
-    setSettings,
-    settings,
-}) => {
-    const [startTime, setStartTime] = useState(
-        settings.time * 2 - settings.remaining,
-    );
-    const [paused, setPaused] = useState(true);
-    const [timeMs, resetTime] = useTime({ paused, startTime });
-
-    useEffect(() => {
-        const elapsed = timeMs - settings.time;
-        const actualRemaining = settings.time - elapsed;
-
-        if (actualRemaining !== settings.remaining) {
-            setSettings({
-                remaining: actualRemaining,
-            });
-        }
-    }, [setSettings, settings.time, settings, timeMs]);
-
-    const restart = useCallback(() => {
-        setSettings({
-            remaining: settings.time,
-        });
-        setStartTime(settings.time);
-        resetTime();
-        setPaused(true);
-    }, [resetTime, setSettings, settings.time]);
+export const PlayView = () => {
+    const [settings, setSettings] = useSettings();
+    const { paused, restart, setPaused } = useTimeControls({
+        settings,
+        setSettings,
+    });
 
     return (
         <Layout paused={paused} settings={settings}>
