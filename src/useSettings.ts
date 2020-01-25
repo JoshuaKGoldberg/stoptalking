@@ -38,4 +38,4 @@ export const useSettings = () => {
     return [settings, setSettingsAndHistory] as const;
 };
 
-export type SetSettings = ReturnType<typeof useSettings>[1];
+export type SetSettings<SettingsKeys extends keyof Settings = keyof Settings> = (newSettings: Partial<Pick<Settings, SettingsKeys>>) => void;
