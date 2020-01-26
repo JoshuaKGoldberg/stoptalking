@@ -105,6 +105,6 @@ export const createGlobals = () => {
 const globals = createGlobals();
 
 export const useGlobals = () => globals as Globals;
-export const useTestGlobals = () => useGlobals() as TestGlobals;
+export const useTestGlobals = () => globals as unknown as TestGlobals;
 
 export default useGlobals;

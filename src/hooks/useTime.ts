@@ -6,10 +6,10 @@ export const frequency = 1000;
 
 export type UseTimeSettings = {
     paused?: boolean;
-    startTime?: number;
+    startTime: number;
 };
 
-export const useTime = ({ paused, startTime = 0 }: UseTimeSettings = {}) => {
+export const useTime = ({ paused, startTime }: UseTimeSettings) => {
     const { clearInterval, setInterval } = useGlobals();
     const [time, setTime] = useState(startTime);
 
