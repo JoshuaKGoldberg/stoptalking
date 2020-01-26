@@ -98,7 +98,6 @@ workflows:
     build_and_verify:
         jobs:
             - build
-              - test
             - format:
                   requires:
                       - build
