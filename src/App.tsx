@@ -6,6 +6,7 @@ import { Layout } from "./components/Layout";
 import { TopControls } from "./components/TopControls";
 import { TimeDisplay } from "./components/TimeDisplay";
 import { useTimeControls } from "./hooks/useTimeControls";
+import { useNoSleep } from "./hooks/useNoSleep";
 import { useSettings } from "./useSettings";
 
 const App: React.FC = () => {
@@ -14,6 +15,7 @@ const App: React.FC = () => {
         settings,
         setSettings,
     });
+    useNoSleep(!paused);
 
     return (
         <Layout paused={paused} settings={settings}>
