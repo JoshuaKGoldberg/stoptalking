@@ -15,7 +15,7 @@
         "classnames": "2.2.6",
         "react": "16.12.0",
         "react-dom": "16.12.0",
-        "use-no-sleep": "0.2.2"
+        "use-no-sleep": "0.3.1"
     },
     "description": "Countdown timer to beep speakers out.",
     "devDependencies": {
