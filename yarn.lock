@@ -10786,12 +10786,12 @@ url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
-use-no-sleep@0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/use-no-sleep/-/use-no-sleep-0.2.2.tgz#7abb4b3114fb8c089634f78909c8e2da9462b42d"
-  integrity sha512-xYG+U40V8D5imX+zTzTNBgcn/9X0PwQy3jAWLBBVGXHZd3DzxhMtN9EdmLElcZVg3k+gAkD44ctNUd4iGNri5A==
+use-no-sleep@0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/use-no-sleep/-/use-no-sleep-0.3.1.tgz#e510d4985b5067f9ef2a214186c1cf6758cd90b5"
+  integrity sha512-9HO+jk+oAi4RB/qUa47TNxKTupUqtLjFBtwglmm7EeyyrWygypC0gieKwfrmXq4QD9IPxjdYr/s+11lnxvELmA==
   dependencies:
-    nosleep.js "https://github.com/ViRPo/NoSleep.js#f7a6122f5d6700f18a68bff2c4114b81fdf6fa55"
+    nosleep.js "git+https://github.com/ViRPo/NoSleep.js.git#f7a6122f5d6700f18a68bff2c4114b81fdf6fa55"
 
 use@^3.1.0:
   version "3.1.1"
