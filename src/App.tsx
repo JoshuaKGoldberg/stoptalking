@@ -1,4 +1,5 @@
 import React from "react";
+import { useNoSleep } from "use-no-sleep";
 
 import { BottomControls } from "./components/BottomControls";
 import { HiddenHeading } from "./components/HiddenHeading";
@@ -6,7 +7,6 @@ import { Layout } from "./components/Layout";
 import { TopControls } from "./components/TopControls";
 import { TimeDisplay } from "./components/TimeDisplay";
 import { useTimeControls } from "./hooks/useTimeControls";
-import { useNoSleep } from "./hooks/useNoSleep";
 import { useSettings } from "./useSettings";
 
 const App: React.FC = () => {
