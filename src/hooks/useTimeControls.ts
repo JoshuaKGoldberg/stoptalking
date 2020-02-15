@@ -1,7 +1,7 @@
-import { useEffect, useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 
 import { SetSettings } from "../useSettings";
-import { useTime } from "./useTime";
+import { useInterval } from "./useInterval";
 import { Settings } from "../types";
 
 export type UseTimeControlsSettings = {
@@ -11,30 +11,22 @@ export type UseTimeControlsSettings = {
 
 export const useTimeControls = ({ settings, setSettings }: UseTimeControlsSettings) => {
     const [paused, setPaused] = useState(true);
-    const [startTime, setStartTime] = useState(
-        settings.time * 2 - settings.remaining,
-    );
-    const [timeMs, resetTime] = useTime({ paused, startTime });
 
     const restart = useCallback(() => {
         setSettings({
+            time: settings.time,
             remaining: settings.time,
         });
-        setStartTime(settings.time);
-        resetTime();
         setPaused(true);
-    }, [resetTime, setSettings, settings.time]);
+    }, [setSettings, settings.time]);
 
-    useEffect(() => {
-        const elapsed = timeMs - settings.time;
-        const actualRemaining = settings.time - elapsed;
+    const tick = useCallback((decrease: number) => {
+        setSettings({
+            remaining: settings.remaining - decrease,
+        });
+    }, [setSettings, settings.remaining])
 
-        if (actualRemaining !== settings.remaining) {
-            setSettings({
-                remaining: actualRemaining,
-            });
-        }
-    }, [setSettings, settings.time, settings, timeMs]);
+    useInterval(tick, !paused);
 
     return { paused, restart, setPaused };
 };

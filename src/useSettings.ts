@@ -5,21 +5,17 @@ import { minuteMs } from "./time";
 import { stringifySearch } from "./utils/search";
 import { Settings } from "./types";
 
-const defaultSettings = {
-    time: minuteMs * 5,
-    remaining: minuteMs * 5,
-};
+const defaultTime = minuteMs * 5;
 
 export const useSettings = () => {
     const query = useQuery();
 
     const [settings, setSettings] = useState<Settings>({
-        ...defaultSettings,
         ...query,
-        time: query.time ? parseInt(query.time) : defaultSettings.time,
+        time: query.time ? parseInt(query.time) : defaultTime,
         remaining: query.remaining
             ? parseInt(query.remaining)
-            : defaultSettings.remaining,
+            : defaultTime,
     });
 
     const setSettingsAndHistory = useCallback(
@@ -29,8 +25,6 @@ export const useSettings = () => {
 
             setSettings(newSettings);
             window.history.replaceState("", "", stringifiedSettings);
-
-            return stringifiedSettings;
         },
         [settings],
     );
