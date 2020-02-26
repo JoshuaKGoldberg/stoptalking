@@ -13,8 +13,8 @@
     },
     "dependencies": {
         "classnames": "2.2.6",
-        "react": "16.12.0",
-        "react-dom": "16.12.0",
+        "react": "16.13.0",
+        "react-dom": "16.13.0",
         "use-no-sleep": "0.3.1"
     },
     "description": "Countdown timer to beep speakers out.",
@@ -36,13 +36,13 @@
         "eslint-plugin-jest": "23.8.0",
         "eslint-plugin-prettier": "3.1.2",
         "eslint-plugin-react": "7.18.3",
-        "eslint-plugin-react-hooks": "2.4.0",
+        "eslint-plugin-react-hooks": "2.5.0",
         "husky": "4.2.3",
         "lint-staged": "10.0.8",
         "lolex": "5.1.2",
         "prettier": "1.19.1",
         "react-scripts": "3.4.0",
-        "react-test-renderer": "16.12.0",
+        "react-test-renderer": "16.13.0",
         "typescript": "3.8.2"
     },
     "keywords": [
