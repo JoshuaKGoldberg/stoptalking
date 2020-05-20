@@ -22,7 +22,7 @@
         "@testing-library/jest-dom": "5.8.0",
         "@testing-library/react": "9.5.0",
         "@testing-library/react-hooks": "3.2.1",
-        "@testing-library/user-event": "10.3.2",
+        "@testing-library/user-event": "10.3.3",
         "@types/classnames": "2.2.10",
         "@types/jest": "25.2.3",
         "@types/lolex": "5.1.0",
