@@ -41,7 +41,7 @@
         "lint-staged": "10.2.11",
         "lolex": "5.1.2",
         "prettier": "2.0.5",
-        "react-scripts": "3.4.2",
+        "react-scripts": "3.4.3",
         "react-test-renderer": "16.13.1",
         "typescript": "3.9.7"
     },
