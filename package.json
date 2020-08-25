@@ -38,7 +38,7 @@
         "eslint-plugin-react": "7.20.6",
         "eslint-plugin-react-hooks": "4.1.0",
         "husky": "4.2.5",
-        "lint-staged": "10.2.12",
+        "lint-staged": "10.2.13",
         "lolex": "5.1.2",
         "prettier": "2.1.0",
         "react-scripts": "3.4.3",
