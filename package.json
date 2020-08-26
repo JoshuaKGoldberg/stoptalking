@@ -40,7 +40,7 @@
         "husky": "4.2.5",
         "lint-staged": "10.2.13",
         "lolex": "5.1.2",
-        "prettier": "2.1.0",
+        "prettier": "2.1.1",
         "react-scripts": "3.4.3",
         "react-test-renderer": "16.13.1",
         "typescript": "4.0.2"
