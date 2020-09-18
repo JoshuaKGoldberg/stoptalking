@@ -43,7 +43,7 @@
         "prettier": "2.1.2",
         "react-scripts": "3.4.3",
         "react-test-renderer": "16.13.1",
-        "typescript": "4.0.2"
+        "typescript": "4.0.3"
     },
     "keywords": [
         "brown bag",
