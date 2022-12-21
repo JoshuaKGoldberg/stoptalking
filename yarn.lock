@@ -2295,10 +2295,10 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.5.tgz#dcce4430e64b443ba8945f0290fb564ad5bac6dd"
   integrity sha512-7+2BITlgjgDhH0vvwZU/HZJVyk+2XUlvxXe8dFMedNX/aMkaOq++rMAFXc0tM7ij15QaWlbdQASBR9dihi+bDQ==
 
-"@types/lolex@5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@types/lolex/-/lolex-5.1.0.tgz#11b4c4756c007306d0feeaf2f08f88350c635d2b"
-  integrity sha512-hCQ2dOEQUw1LwofdIpMMGGqENd5p5ANzvcTe1nXTjcQL84r7tcLXFJlBgi0Ggz0f7BLmE2epf0C5Q07iq2gV0g==
+"@types/lolex@5.1.2":
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/@types/lolex/-/lolex-5.1.2.tgz#0a0d336f96f70919107399a52877a7dea4a4f284"
+  integrity sha512-ZmfpBbjp2obo1dKm2l57tL/yVAVfDryHX/6nsivGQ1Gd86Ylu6GFNdxH69kUmYWmmO+Yedq9i7m0/obFww4XiQ==
 
 "@types/minimatch@*":
   version "3.0.3"
