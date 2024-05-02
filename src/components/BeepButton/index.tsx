@@ -1,14 +1,14 @@
 import React from "react";
 
-import { useConsentingAudio } from "../../hooks/useConsentingAudio";
-import { InputButton } from "../Inputs/InputButton";
-import { useBeeper } from "./useBeeper";
+import { useConsentingAudio } from "../../hooks/useConsentingAudio.js";
+import { InputButton } from "../Inputs/InputButton/index.jsx";
+import { useBeeper } from "./useBeeper.jsx";
 
-export type BeepButtonProps = {
+export interface BeepButtonProps {
     over: number;
-};
+}
 
-export const BeepButton: React.FC<BeepButtonProps> = ({ over }) => {
+export const BeepButton = ({ over }: BeepButtonProps) => {
     const [audio, toggleAudio] = useConsentingAudio();
     useBeeper({ audio, over });
 

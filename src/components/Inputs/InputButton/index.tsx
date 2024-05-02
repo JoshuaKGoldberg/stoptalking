@@ -3,9 +3,10 @@ import React from "react";
 
 import stylesShared from "../stylesShared.module.css";
 
-export const InputButton: React.FC<React.InputHTMLAttributes<
-    HTMLInputElement
->> = ({ className, ...props }) => {
+export const InputButton = ({
+    className,
+    ...props
+}: React.InputHTMLAttributes<HTMLInputElement>) => {
     return (
         <input
             type="button"

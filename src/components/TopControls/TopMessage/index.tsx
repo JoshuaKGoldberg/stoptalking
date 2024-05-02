@@ -1,13 +1,13 @@
 import React from "react";
 
-import { Settings } from "../../../types";
+import { Settings } from "../../../types.js";
 
-export type TopMessageProps = {
+export interface TopMessageProps {
     paused?: boolean;
     settings: Pick<Settings, "remaining" | "time">;
-};
+}
 
-export const TopMessage: React.FC<TopMessageProps> = ({ paused, settings }) => {
+export const TopMessage = ({ paused, settings }: TopMessageProps) => {
     if (paused && settings.remaining === settings.time) {
         return <>You will have:</>;
     }

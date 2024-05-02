@@ -3,5 +3,3 @@ export const useQuery = () => {
         new URLSearchParams(window.location.search).entries(),
     );
 };
-
-export type UsedQuery = ReturnType<typeof useQuery>;

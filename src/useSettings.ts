@@ -1,21 +1,19 @@
 import { useCallback, useState } from "react";
 
-import { useQuery } from "./hooks/useQuery";
-import { minuteMs } from "./time";
-import { stringifySearch } from "./utils/search";
-import { Settings } from "./types";
+import { useQuery } from "./hooks/useQuery.js";
+import { minuteMs } from "./time.js";
+import { Settings } from "./types.js";
+import { stringifySearch } from "./utils/search.js";
 
-const defaultTime = minuteMs * 5;
+const defaultTime = minuteMs * 20;
 
 export const useSettings = () => {
     const query = useQuery();
 
     const [settings, setSettings] = useState<Settings>({
         ...query,
+        remaining: query.remaining ? parseInt(query.remaining) : defaultTime,
         time: query.time ? parseInt(query.time) : defaultTime,
-        remaining: query.remaining
-            ? parseInt(query.remaining)
-            : defaultTime,
     });
 
     const setSettingsAndHistory = useCallback(
@@ -32,4 +30,5 @@ export const useSettings = () => {
     return [settings, setSettingsAndHistory] as const;
 };
 
-export type SetSettings<SettingsKeys extends keyof Settings = keyof Settings> = (newSettings: Partial<Pick<Settings, SettingsKeys>>) => void;
+export type SetSettings<SettingsKeys extends keyof Settings = keyof Settings> =
+    (newSettings: Partial<Pick<Settings, SettingsKeys>>) => void;

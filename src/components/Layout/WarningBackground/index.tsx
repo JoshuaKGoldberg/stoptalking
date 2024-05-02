@@ -3,15 +3,15 @@ import React from "react";
 
 import styles from "./styles.module.css";
 
-export type WarningBackgroundProps = {
+export interface WarningBackgroundProps {
     paused?: boolean;
     percentage?: number;
-};
+}
 
-export const WarningBackground: React.FC<WarningBackgroundProps> = ({
+export const WarningBackground = ({
     paused,
     percentage,
-}) => {
+}: WarningBackgroundProps) => {
     const opacity =
         percentage === undefined ? 0 : Math.pow(0.25, percentage * 4);
 

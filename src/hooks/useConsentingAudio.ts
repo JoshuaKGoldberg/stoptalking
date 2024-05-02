@@ -1,9 +1,4 @@
-import { useState, useCallback } from "react";
-
-export type ConsentingAudio = {
-    audio: boolean;
-    toggleAudio: () => void;
-};
+import { useCallback, useState } from "react";
 
 export const useConsentingAudio = () => {
     const [audio, setAudio] = useState(false);

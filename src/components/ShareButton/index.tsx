@@ -1,26 +1,22 @@
 import React, { useState } from "react";
 
-import useGlobals from "../../hooks/useGlobals";
-import { Settings } from "../../types";
-import { stringifySearch } from "../../utils/search";
-import { InputButton } from "../Inputs/InputButton";
+import { Settings } from "../../types.js";
+import { stringifySearch } from "../../utils/search.js";
+import { InputButton } from "../Inputs/InputButton/index.jsx";
 
-export type ShareButtonOnChange = (minutes: number, seconds: number) => void;
-
-export type ShareButtonProps = {
+export interface ShareButtonProps {
     settings: Settings;
-};
+}
 
-export const ShareButton: React.FC<ShareButtonProps> = ({ settings }) => {
+export const ShareButton = ({ settings }: ShareButtonProps) => {
     const [copied, setCopied] = useState<string>();
-    const globals = useGlobals();
     const stringifiedSettings = stringifySearch({
         ...settings,
         remaining: settings.time,
     });
 
     const copy = async () => {
-        await navigator.clipboard.writeText(globals.location.toString());
+        await navigator.clipboard.writeText(location.toString());
         setCopied(stringifiedSettings);
     };
 
