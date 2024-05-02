@@ -12,7 +12,6 @@ export interface TopControlsProps {
     restart: () => void;
     setPaused: (newPaused: boolean) => void;
     settings: Settings;
-    toggleZen: () => void;
 }
 
 export const TopControls = ({
@@ -20,7 +19,6 @@ export const TopControls = ({
     restart,
     setPaused,
     settings,
-    toggleZen,
 }: TopControlsProps) => {
     return (
         <ZenZone zen={settings.zen}>
@@ -30,10 +28,6 @@ export const TopControls = ({
                     value={paused ? "Go!" : "Pause"}
                 />
                 <InputButton onClick={restart} value="Restart" />
-                <InputButton
-                    onClick={toggleZen}
-                    value={settings.zen ? "Zen Off" : "Zen On"}
-                />
             </ButtonsList>
             <Notice>
                 <TopMessage paused={paused} settings={settings} />

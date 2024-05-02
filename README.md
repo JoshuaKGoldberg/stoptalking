@@ -1,6 +1,6 @@
 <h1 align="center">Stoptalking</h1>
 
-<p align="center">Countdown timer to beep speakers out.</p>
+<p align="center">Speaker clock that fades from green to red.</p>
 
 <p align="center">
 	<!-- prettier-ignore-start -->
