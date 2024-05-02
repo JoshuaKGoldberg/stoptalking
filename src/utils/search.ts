@@ -1,11 +1,16 @@
-export const stringifySearch = (search: any) =>
+export const stringifySearch = (
+    search: Record<string, boolean | null | number | string>,
+) =>
     "?" +
     Object.entries(search)
-        .filter(([_, value]) => value !== false && value != null)
+        .filter(([, value]) => value !== false && value != null)
         .map(stringifyPair)
         .join("&");
 
-const stringifyPair = ([key, value]: [string, any]) => {
+const stringifyPair = ([key, value]: [
+    string,
+    boolean | null | number | string,
+]) => {
     if (value === true) {
         return key;
     }

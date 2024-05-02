@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-import { BeeperNodes, createBeeper } from "./createBeeperNodes";
+import { BeeperNodes, createBeeper } from "./createBeeperNodes.js";
 
-export type BeeperSettings = {
+export interface BeeperSettings {
     audio?: boolean;
     over: number;
-};
+}
 
 export const useBeeper = ({ audio, over }: BeeperSettings) => {
     const [beeper, setBeeper] = useState<BeeperNodes>();

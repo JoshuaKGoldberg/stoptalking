@@ -1,22 +1,22 @@
 import React from "react";
 
-import { ButtonsList } from "../ButtonsList";
-import { InputLink } from "../Inputs/InputLink";
-import { Settings } from "../../types";
-import { BeepButton } from "../BeepButton";
-import { Notice } from "../Notice";
-import { ShareButton } from "../ShareButton";
-import { ZenZone } from "../ZenZone";
+import { Settings } from "../../types.js";
+import { BeepButton } from "../BeepButton/index.jsx";
+import { ButtonsList } from "../ButtonsList/index.jsx";
+import { InputLink } from "../Inputs/InputLink/index.jsx";
+import { Notice } from "../Notice/index.jsx";
+import { ShareButton } from "../ShareButton/index.jsx";
+import { ZenZone } from "../ZenZone/index.jsx";
 
-export type BottomControlsProps = {
+export interface BottomControlsProps {
     remaining: number;
     settings: Settings;
-};
+}
 
-export const BottomControls: React.FC<BottomControlsProps> = ({
+export const BottomControls = ({
     remaining,
     settings,
-}) => {
+}: BottomControlsProps) => {
     return (
         <ZenZone zen={settings.zen}>
             <Notice>

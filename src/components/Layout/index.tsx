@@ -1,20 +1,17 @@
 import cx from "classnames";
 import React from "react";
 
-import { Settings } from "../../types";
+import { Settings } from "../../types.js";
+import { WarningBackground } from "./WarningBackground/index.jsx";
 import styles from "./styles.module.css";
-import { WarningBackground } from "./WarningBackground";
 
-export type LayoutProps = {
+export interface LayoutProps {
+    children: React.ReactNode;
     paused?: boolean;
     settings?: Pick<Settings, "remaining" | "time">;
-};
+}
 
-export const Layout: React.FC<LayoutProps> = ({
-    children,
-    paused,
-    settings,
-}) => {
+export const Layout = ({ children, paused, settings }: LayoutProps) => {
     const percentage =
         settings === undefined ? undefined : settings.remaining / settings.time;
 

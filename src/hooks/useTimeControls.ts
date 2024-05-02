@@ -1,30 +1,36 @@
-import { useState, useCallback } from "react";
+import { useCallback, useState } from "react";
 
-import { SetSettings } from "../useSettings";
-import { useInterval } from "./useInterval";
-import { Settings } from "../types";
+import { Settings } from "../types.js";
+import { SetSettings } from "../useSettings.js";
+import { useInterval } from "./useInterval.js";
 
-export type UseTimeControlsSettings = {
-    settings: Pick<Settings, 'remaining' | 'time'>;
-    setSettings: SetSettings<'remaining' | 'time'>;
+export interface UseTimeControlsSettings {
+    setSettings: SetSettings<"remaining" | "time">;
+    settings: Pick<Settings, "remaining" | "time">;
 }
 
-export const useTimeControls = ({ settings, setSettings }: UseTimeControlsSettings) => {
+export const useTimeControls = ({
+    setSettings,
+    settings,
+}: UseTimeControlsSettings) => {
     const [paused, setPaused] = useState(true);
 
     const restart = useCallback(() => {
         setSettings({
-            time: settings.time,
             remaining: settings.time,
+            time: settings.time,
         });
         setPaused(true);
     }, [setSettings, settings.time]);
 
-    const tick = useCallback((decrease: number) => {
-        setSettings({
-            remaining: settings.remaining - decrease,
-        });
-    }, [setSettings, settings.remaining])
+    const tick = useCallback(
+        (decrease: number) => {
+            setSettings({
+                remaining: settings.remaining - decrease,
+            });
+        },
+        [setSettings, settings.remaining],
+    );
 
     useInterval(tick, !paused);
 

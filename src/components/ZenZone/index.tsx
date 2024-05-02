@@ -3,11 +3,12 @@ import React from "react";
 
 import styles from "./styles.module.css";
 
-export type ZenZoneProps = {
+export interface ZenZoneProps {
+    children: React.ReactNode;
     zen?: boolean;
-};
+}
 
-export const ZenZone: React.FC<ZenZoneProps> = ({ children, zen }) => {
+export const ZenZone = ({ children, zen }: ZenZoneProps) => {
     return (
         <div className={cx(styles.zone, zen && styles.zoneZen)}>{children}</div>
     );

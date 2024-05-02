@@ -1,14 +1,14 @@
 import React from "react";
 
-import { pluralize } from "../../../utils/plurals";
+import { pluralize } from "../../../utils/plurals.js";
 import styles from "./styles.module.css";
 
-export type TimeUnitProps = {
+export interface TimeUnitProps {
     label: string;
     value: number;
-};
+}
 
-export const TimeUnit: React.FC<TimeUnitProps> = ({ label, value }) => {
+export const TimeUnit = ({ label, value }: TimeUnitProps) => {
     const labelId = `label-${label}`;
 
     return (

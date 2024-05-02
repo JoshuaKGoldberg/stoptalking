@@ -1,14 +1,14 @@
 import React from "react";
 
-import { minuteMs, secondMs } from "../../time";
+import { minuteMs, secondMs } from "../../time.js";
+import { TimeUnit } from "./TimeUnit/index.jsx";
 import styles from "./styles.module.css";
-import { TimeUnit } from "./TimeUnit";
 
-export type TimeDisplayProps = {
+export interface TimeDisplayProps {
     value: number;
-};
+}
 
-export const TimeDisplay: React.FC<TimeDisplayProps> = ({ value }) => {
+export const TimeDisplay = ({ value }: TimeDisplayProps) => {
     const minutes = Math.floor(value / minuteMs);
     const seconds = Math.floor((value - minutes * minuteMs) / secondMs);
 

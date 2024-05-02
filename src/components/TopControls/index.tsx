@@ -1,27 +1,27 @@
 import React from "react";
 
-import { ButtonsList } from "../ButtonsList";
-import { InputButton } from "../Inputs/InputButton";
-import { Notice } from "../Notice";
-import { ZenZone } from "../ZenZone";
-import { Settings } from "../../types";
-import { TopMessage } from "./TopMessage";
+import { Settings } from "../../types.js";
+import { ButtonsList } from "../ButtonsList/index.jsx";
+import { InputButton } from "../Inputs/InputButton/index.jsx";
+import { Notice } from "../Notice/index.jsx";
+import { ZenZone } from "../ZenZone/index.jsx";
+import { TopMessage } from "./TopMessage/index.jsx";
 
-export type TopControlsProps = {
+export interface TopControlsProps {
     paused?: boolean;
     restart: () => void;
     setPaused: (newPaused: boolean) => void;
     settings: Settings;
     toggleZen: () => void;
-};
+}
 
-export const TopControls: React.FC<TopControlsProps> = ({
+export const TopControls = ({
     paused,
     restart,
     setPaused,
     settings,
     toggleZen,
-}) => {
+}: TopControlsProps) => {
     return (
         <ZenZone zen={settings.zen}>
             <ButtonsList>
