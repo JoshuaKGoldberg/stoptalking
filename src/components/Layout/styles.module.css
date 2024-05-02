@@ -1,5 +1,5 @@
 .layoutChildren {
-    bottom: 20px;
+    bottom: 10px;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: min-content auto min-content;
