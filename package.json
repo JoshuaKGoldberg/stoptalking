@@ -1,7 +1,7 @@
 {
     "name": "stoptalking",
     "version": "0.0.1",
-    "description": "Countdown timer to beep speakers out.",
+    "description": "Speaker clock that fades from green to red.",
     "repository": {
         "type": "git",
         "url": "https://github.com/JoshuaKGoldberg/stoptalking"

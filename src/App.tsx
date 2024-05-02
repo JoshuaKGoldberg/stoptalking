@@ -16,6 +16,7 @@ const App = () => {
         setSettings,
         settings,
     });
+
     useNoSleep(!paused);
 
     return (
@@ -26,12 +27,12 @@ const App = () => {
                 restart={restart}
                 setPaused={setPaused}
                 settings={settings}
-                toggleZen={() => setSettings({ zen: !settings.zen })}
             />
             <TimeDisplay value={Math.max(0, settings.remaining)} />
             <BottomControls
                 remaining={settings.remaining}
                 settings={settings}
+                toggleZen={() => setSettings({ zen: !settings.zen })}
             />
         </Layout>
     );
