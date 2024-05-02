@@ -4,8 +4,6 @@ import { Settings } from "../../types.js";
 import { stringifySearch } from "../../utils/search.js";
 import { InputButton } from "../Inputs/InputButton/index.jsx";
 
-export type ShareButtonOnChange = (minutes: number, seconds: number) => void;
-
 export interface ShareButtonProps {
     settings: Settings;
 }

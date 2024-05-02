@@ -7,9 +7,8 @@ import { Layout } from "./components/Layout/index.jsx";
 import { TimeDisplay } from "./components/TimeDisplay/index.jsx";
 import { TopControls } from "./components/TopControls/index.jsx";
 import { useTimeControls } from "./hooks/useTimeControls.js";
-import { useSettings } from "./useSettings.js";
-
 import "./index.css";
+import { useSettings } from "./useSettings.js";
 
 const App = () => {
     const [settings, setSettings] = useSettings();

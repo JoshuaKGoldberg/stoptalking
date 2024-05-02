@@ -8,5 +8,5 @@
         "node_modules",
         "pnpm-lock.yaml"
     ],
-    "words": ["knip", "packagejson", "stoptalking", "tseslint", "tsup"]
+    "words": ["knip", "packagejson", "stoptalking", "tseslint", "vite"]
 }

@@ -5,7 +5,7 @@ import { minuteMs } from "./time.js";
 import { Settings } from "./types.js";
 import { stringifySearch } from "./utils/search.js";
 
-const defaultTime = minuteMs * 5;
+const defaultTime = minuteMs * 20;
 
 export const useSettings = () => {
     const query = useQuery();

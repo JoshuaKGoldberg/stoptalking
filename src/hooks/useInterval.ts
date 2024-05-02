@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
-export type IntervalTick = (decrease: number) => void;
+const frequency = 1000;
 
-export const frequency = 1000;
+export type IntervalTick = (decrease: number) => void;
 
 export const useInterval = (callback: IntervalTick, enabled: boolean) => {
     useEffect(() => {
