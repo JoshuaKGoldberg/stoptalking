@@ -14,9 +14,6 @@ dependencies:
   react-dom:
     specifier: 18.3.1
     version: 18.3.1(react@18.3.1)
-  use-no-sleep:
-    specifier: 0.3.1
-    version: 0.3.1
 
 devDependencies:
   '@eslint-community/eslint-plugin-eslint-comments':
@@ -6021,12 +6018,6 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dev: true
 
-  /use-no-sleep@0.3.1:
-    resolution: {integrity: sha512-9HO+jk+oAi4RB/qUa47TNxKTupUqtLjFBtwglmm7EeyyrWygypC0gieKwfrmXq4QD9IPxjdYr/s+11lnxvELmA==}
-    dependencies:
-      nosleep.js: github.com/ViRPo/NoSleep.js/f7a6122f5d6700f18a68bff2c4114b81fdf6fa55
-    dev: false
-
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
     dev: true
@@ -6270,9 +6261,3 @@ packages:
   /zod@3.23.5:
     resolution: {integrity: sha512-fkwiq0VIQTksNNA131rDOsVJcns0pfVUjHzLrNBiF/O/Xxb5lQyEXkhZWcJ7npWsYlvs+h0jFWXXy4X46Em1JA==}
     dev: true
-
-  github.com/ViRPo/NoSleep.js/f7a6122f5d6700f18a68bff2c4114b81fdf6fa55:
-    resolution: {tarball: https://codeload.github.com/ViRPo/NoSleep.js/tar.gz/f7a6122f5d6700f18a68bff2c4114b81fdf6fa55}
-    name: nosleep.js
-    version: 0.9.0
-    dev: false
