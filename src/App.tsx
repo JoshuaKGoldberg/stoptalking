@@ -31,7 +31,19 @@ const App = () => {
                 setPaused={setPaused}
                 settings={settings}
             />
-            <TimeDisplay value={Math.max(0, settings.remaining)} />
+            <TimeDisplay
+                onTimeChange={
+                    paused
+                        ? (change) => {
+                              setSettings({
+                                  remaining: settings.remaining + change,
+                                  time: settings.time + change,
+                              });
+                          }
+                        : undefined
+                }
+                value={Math.max(0, settings.remaining)}
+            />
             <BottomControls
                 remaining={settings.remaining}
                 settings={settings}
