@@ -14,11 +14,16 @@ export interface TimeUnitProps {
 export const TimeUnit = ({ label, onEdit, value }: TimeUnitProps) => {
     const labelId = `label-${label}`;
 
+    const commonProps = {
+        "aria-labelledby": labelId,
+        className: styles.timeInput,
+    };
+
     return (
         <span className={styles.timeUnit}>
             {onEdit ? (
                 <input
-                    className={styles.timeInput}
+                    {...commonProps}
                     defaultValue={value}
                     onChange={(event) => {
                         onEdit(event.target.valueAsNumber - value);
@@ -26,11 +31,7 @@ export const TimeUnit = ({ label, onEdit, value }: TimeUnitProps) => {
                     type="number"
                 />
             ) : (
-                <span
-                    aria-labelledby={labelId}
-                    aria-live="assertive"
-                    className={styles.timeInput}
-                >
+                <span {...commonProps} aria-live="assertive">
                     {value}
                 </span>
             )}
