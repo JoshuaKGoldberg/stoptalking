@@ -59,7 +59,7 @@
         "@types/react": "18.3.3",
         "@types/react-dom": "18.3.0",
         "cspell": "^8.7.0",
-        "eslint": "9.4.0",
+        "eslint": "9.5.0",
         "eslint-plugin-jsdoc": "^48.2.3",
         "eslint-plugin-jsonc": "^2.15.1",
         "eslint-plugin-markdown": "^5.0.0",
