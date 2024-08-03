@@ -80,7 +80,7 @@
         "release-it": "^17.2.1",
         "sentences-per-line": "^0.2.1",
         "typescript": "5.5.3",
-        "typescript-eslint": "^7.8.0",
+        "typescript-eslint": "^8.0.0",
         "vite": "^5.2.11"
     },
     "engines": {
