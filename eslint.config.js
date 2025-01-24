@@ -47,6 +47,7 @@ export default tseslint.config(
             },
         },
         rules: {
+            "n/no-unpublished-import": "off",
             "n/no-unsupported-features/node-builtins": "off",
 
             // Stylistic concerns that don't interfere with Prettier
