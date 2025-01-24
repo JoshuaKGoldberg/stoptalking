@@ -1,8 +1,8 @@
 import React from "react";
 
 import { minuteMs, secondMs } from "../../time.js";
-import { OnTimeChange, TimeUnit } from "./TimeUnit/index.jsx";
 import styles from "./styles.module.css";
+import { OnTimeChange, TimeUnit } from "./TimeUnit/index.jsx";
 
 export interface TimeDisplayProps {
     onTimeChange: OnTimeChange | undefined;
@@ -19,7 +19,9 @@ export const TimeDisplay = ({ onTimeChange, value }: TimeDisplayProps) => {
                 label="Minute"
                 onEdit={
                     onTimeChange &&
-                    ((change) => onTimeChange(change * minuteMs))
+                    ((change) => {
+                        onTimeChange(change * minuteMs);
+                    })
                 }
                 value={minutes}
             />
@@ -27,7 +29,9 @@ export const TimeDisplay = ({ onTimeChange, value }: TimeDisplayProps) => {
                 label="Second"
                 onEdit={
                     onTimeChange &&
-                    ((change) => onTimeChange(change * secondMs))
+                    ((change) => {
+                        onTimeChange(change * secondMs);
+                    })
                 }
                 value={seconds}
             />

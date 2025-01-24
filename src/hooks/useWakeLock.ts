@@ -1,24 +1,24 @@
 import { useEffect } from "react";
 
-export interface UseWakeLockSettings {
-    active?: boolean;
-    type: WakeLockType;
-}
-
 export type UsedWakeLock =
     | UsedWakeLockFailure
     | UsedWakeLockPending
     | UsedWakeLockSuccess;
 
 export type UsedWakeLockFailure = [undefined, DOMException];
+
 export type UsedWakeLockPending = [undefined, undefined];
 export type UsedWakeLockSuccess = [WakeLockSentinel, undefined];
+export interface UseWakeLockSettings {
+    active?: boolean;
+    type: WakeLockType;
+}
 
 export const useWakeLock = ({
     active,
     type,
 }: UseWakeLockSettings): UsedWakeLock => {
-    let wakeLock: WakeLockSentinel | undefined;
+    let wakeLock: undefined | WakeLockSentinel;
     let error: DOMException | undefined;
 
     useEffect(() => {
@@ -28,7 +28,7 @@ export const useWakeLock = ({
                 .then((result) => {
                     wakeLock = result;
                 })
-                .catch((caught) => {
+                .catch((caught: unknown) => {
                     error = caught as DOMException;
                 });
         } else {

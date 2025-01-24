@@ -15,5 +15,5 @@ const stringifyPair = ([key, value]: [
         return key;
     }
 
-    return key + "=" + value;
+    return [key, value].join("=");
 };

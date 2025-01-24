@@ -2,8 +2,8 @@ import cx from "classnames";
 import React from "react";
 
 import { Settings } from "../../types.js";
-import { WarningBackground } from "./WarningBackground/index.jsx";
 import styles from "./styles.module.css";
+import { WarningBackground } from "./WarningBackground/index.jsx";
 
 export interface LayoutProps {
     children: React.ReactNode;

@@ -47,7 +47,9 @@ const App = () => {
             <BottomControls
                 remaining={settings.remaining}
                 settings={settings}
-                toggleZen={() => setSettings({ zen: !settings.zen })}
+                toggleZen={() => {
+                    setSettings({ zen: !settings.zen });
+                }}
             />
         </Layout>
     );

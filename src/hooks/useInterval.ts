@@ -12,6 +12,8 @@ export const useInterval = (callback: IntervalTick, enabled: boolean) => {
 
         const handle = setTimeout(callback, frequency, frequency);
 
-        return () => clearTimeout(handle);
+        return () => {
+            clearTimeout(handle);
+        };
     }, [clearTimeout, setTimeout, enabled, callback]);
 };
