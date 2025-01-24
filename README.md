@@ -1,6 +1,9 @@
 <h1 align="center">Stoptalking</h1>
 
-<p align="center">Speaker clock that fades from green to red.</p>
+<p align="center">
+	A very zen speaker clock that fades from green to red.
+	🚦
+</p>
 
 <p align="center">
 	<!-- prettier-ignore-start -->
