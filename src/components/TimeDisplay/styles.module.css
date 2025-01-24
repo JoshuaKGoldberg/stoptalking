@@ -15,8 +15,16 @@
     .timeDisplay {
         display: grid;
         grid-template-columns: 50% 50%;
-        grid-template-rows: 100%;
         font-size: 5rem;
+        gap: 0.5rem;
+        grid-template-rows: 100%;
         width: 90%;
+    }
+
+    .timeDisplay.zen {
+        align-items: center;
+        grid-template-columns: 50% 0;
+        font-size: 7.5rem;
+        justify-content: center;
     }
 }
