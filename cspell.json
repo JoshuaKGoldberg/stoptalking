@@ -3,8 +3,8 @@
     "ignorePaths": [
         ".github",
         "CHANGELOG.md",
-        "coverage",
-        "lib",
+        "dist",
+        "dist",
         "node_modules",
         "pnpm-lock.yaml"
     ],

@@ -24,7 +24,9 @@ export const TopControls = ({
         <ZenZone zen={settings.zen}>
             <ButtonsList>
                 <InputButton
-                    onClick={() => setPaused(!paused)}
+                    onClick={() => {
+                        setPaused(!paused);
+                    }}
                     value={paused ? "Go!" : "Pause"}
                 />
                 <InputButton onClick={restart} value="Restart" />

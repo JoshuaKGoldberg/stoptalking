@@ -7,7 +7,6 @@
         "moduleResolution": "NodeNext",
         "jsx": "preserve",
         "noEmit": true,
-        "outDir": "lib",
         "resolveJsonModule": true,
         "skipLibCheck": true,
         "sourceMap": true,

@@ -22,5 +22,5 @@ export const ShareButton = ({ settings }: ShareButtonProps) => {
 
     const value = copied === stringifiedSettings ? "Copied" : "Copy URL";
 
-    return <InputButton onClick={copy} value={value} />;
+    return <InputButton onClick={() => copy} value={value} />;
 };
