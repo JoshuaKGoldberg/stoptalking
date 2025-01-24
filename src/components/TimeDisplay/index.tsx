@@ -1,3 +1,4 @@
+import cx from "classnames";
 import React from "react";
 
 import { minuteMs, secondMs } from "../../time.js";
@@ -7,14 +8,15 @@ import { OnTimeChange, TimeUnit } from "./TimeUnit/index.jsx";
 export interface TimeDisplayProps {
     onTimeChange: OnTimeChange | undefined;
     value: number;
+    zen: boolean | undefined;
 }
 
-export const TimeDisplay = ({ onTimeChange, value }: TimeDisplayProps) => {
+export const TimeDisplay = ({ onTimeChange, value, zen }: TimeDisplayProps) => {
     const minutes = Math.floor(value / minuteMs);
     const seconds = Math.floor((value - minutes * minuteMs) / secondMs);
 
     return (
-        <span className={styles.timeDisplay}>
+        <span className={cx(styles.timeDisplay, zen && styles.zen)}>
             <TimeUnit
                 label="Minute"
                 onEdit={
@@ -25,16 +27,18 @@ export const TimeDisplay = ({ onTimeChange, value }: TimeDisplayProps) => {
                 }
                 value={minutes}
             />
-            <TimeUnit
-                label="Second"
-                onEdit={
-                    onTimeChange &&
-                    ((change) => {
-                        onTimeChange(change * secondMs);
-                    })
-                }
-                value={seconds}
-            />
+            {!zen && (
+                <TimeUnit
+                    label="Second"
+                    onEdit={
+                        onTimeChange &&
+                        ((change) => {
+                            onTimeChange(change * secondMs);
+                        })
+                    }
+                    value={seconds}
+                />
+            )}
         </span>
     );
 };

@@ -1,7 +1,7 @@
 {
     "name": "stoptalking",
     "version": "0.0.1",
-    "description": "Speaker clock that fades from green to red.",
+    "description": "A very zen speaker clock that fades from green to red. 🚦",
     "repository": {
         "type": "git",
         "url": "https://github.com/JoshuaKGoldberg/stoptalking"

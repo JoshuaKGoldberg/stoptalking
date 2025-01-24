@@ -43,6 +43,7 @@ const App = () => {
                         : undefined
                 }
                 value={Math.max(0, settings.remaining)}
+                zen={settings.zen}
             />
             <BottomControls
                 remaining={settings.remaining}
